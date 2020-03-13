@@ -124,5 +124,8 @@
       }
     }
   },
-  "defaultProject": "tournament-planner"
+  "defaultProject": "tournament-planner",
+  "cli": {
+    "analytics": "7bb9bae0-9d06-4dd7-8ba5-b6926536a439"
+  }
 }
