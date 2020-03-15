@@ -1,0 +1,18 @@
+{
+  "development": {
+    "username": "bwxchndz",
+    "password": "7eTntnuCGqo2x-29NA2RxG0Fk3F7_-K6",
+    "database": "bwxchndz",
+    "host": "drona.db.elephantsql.com",
+    "dialect": "postgres",
+    "operatorsAliases": 0
+  },
+  "production": {
+    "username": "root",
+    "password": null,
+    "database": "database_production",
+    "host": "127.0.0.1",
+    "dialect": "mysql",
+    "operatorsAliases": false
+  }
+}
