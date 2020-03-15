@@ -35,7 +35,72 @@ app.use(session({
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.use(express.static(__dirname + '/public'));
-
 const port = 3000;
 app.listen(port, () => console.log('App listening on port ' + port));
+
+/*  PASSPORT SETUP  */
+
+const passport = require('passport');
+app.use(passport.initialize());
+app.use(passport.session());
+
+
+passport.serializeUser(function (user, cb) {
+  cb(null, user.id);
+});
+
+passport.deserializeUser(function (id, cb) {
+  models.users.findOne({ where: { id: id } }).then(function (user) {
+    cb(null, user);
+  });
+});
+
+/* PASSPORT LOCAL AUTHENTICATION */
+
+const LocalStrategy = require('passport-local').Strategy;
+
+passport.use(new LocalStrategy(
+  function (username, password, done) {
+    models.users.findOne({
+      where: {
+        username: username
+      }
+    }).then(function (user) {
+      if (!user) {
+        console.log("no user")
+        return done(null, false);
+      }
+
+      if (user.password != encryptionPassword(password)) {
+        console.log("wrong password")
+        return done(null, false);
+      }
+      console.log("user logged in")
+      return done(null, user);
+    }).catch(function (err) {
+      return done(err);
+    });
+  }
+));
+
+/* SIGNIN SIGNUP */
+
+app.post('/sign-in',
+  passport.authenticate('local', { failureRedirect: '/' }),
+  function (req, res) {
+    res.redirect('/tasks');
+  });
+
+app.post("/sign-up", function (req, response) {
+  models.users.create({
+    userName: req.body.userName,
+    emailAddress: req.body.emailAddress,
+    password: encryptionPassword(req.body.password),
+    userType: req.body.userType,
+  })
+    .then(function (user) {
+      req.login(user, function(){
+        response.redirect("/tasks");
+      })
+    });
+});
