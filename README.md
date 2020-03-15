@@ -2,26 +2,6 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.24.
 
-## Development server
+With the idea of building a functional productivity app that aligns with our interest, we created the Tournament Planner App. It lets you organize tournaments that could be anything from a basketball tourney to an esports one. 
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+The App works like this: A user organizes the tournament setting whether it's single elimination, double, or round robin. Another user signs up to participate to any tournament currently available. The organizer then updates the app according to the win/loss state of the participants in the tournament and each participant can check their place in the tournament.
