@@ -61,10 +61,11 @@ app.use(express.static(__dirname + '/public'));
 const LocalStrategy = require('passport-local').Strategy;
 
 passport.use(new LocalStrategy(
-    function (username, password, done) {
+    {usernameField: "userName", passwordField: "password"},
+    function (userName, password, done) {
         models.users.findOne({
             where: {
-                username: username
+                userName: userName
             }
         }).then(function (user) {
             if (!user) {
@@ -87,22 +88,33 @@ passport.use(new LocalStrategy(
 /* SIGNIN SIGNUP */
 
 app.post('/sign-in',
-    passport.authenticate('local', { failureRedirect: '/' }),
-    function (req, res) {
-        res.render('/home');
-    });
+    passport.authenticate('local'), function (req, res) {
+        if (req.isAuthenticated()) {
+          console.log("The user is logged in.");
+          res.redirect("/login");
+        } else {
+          console.log("no open session")
+          res.redirect("/login");
+        }
+      }
+    // function (req, res) {
+    //     res.render('/home');
+    // }
+    );
 
 app.post("/sign-up", function (req, res) {
     console.log(req.body)
     models.users.create({
-        userName: req.body.username,
-        emailAddress: req.body.email,
+        userName: req.body.userName,
+        emailAddress: req.body.emailAddress,
         password: encryptionPassword(req.body.password),
         userType: req.body.userType,
     })
         .then(function (user) {
             req.login(user, function () {
-                res.render("/home");
+                // res.render("/home");
+                res.redirect("/login")
+                console.log("The user registered.")
             })
         });
 });
@@ -111,9 +123,9 @@ app.get('/sign-out', function (req, res) {
     if (req.isAuthenticated()) {
       console.log("The user is logging out.");
       req.logOut();
-    //   res.redirect("/signin");
+      res.redirect("/login");
     } else {
       console.log("no open session")
-    //   res.redirect("/signin");
+      res.redirect("/login");
     }
   });
