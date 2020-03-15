@@ -12,25 +12,25 @@ var pbkdf2 = require('pbkdf2');
 var salt = "XZoLh12Teu";
 
 function encryptionPassword(password) {
-  var key = pbkdf2.pbkdf2Sync(
-    password, salt, 36000, 256, 'sha256'
-  );
-  var hash = key.toString('hex');
+    var key = pbkdf2.pbkdf2Sync(
+        password, salt, 36000, 256, 'sha256'
+    );
+    var hash = key.toString('hex');
 
-  return hash;
+    return hash;
 }
 
 app.use(cookieSession({
-  maxAge: 24 * 60 * 60 * 1000,
-  keys: ["itsakey"]
+    maxAge: 24 * 60 * 60 * 1000,
+    keys: ["itsakey"]
 }));
 
 app.use(cookieParser());
 
 app.use(session({
-  secret: "cats",
-  resave: true,
-  saveUninitialized: true
+    secret: "cats",
+    resave: true,
+    saveUninitialized: true
 }));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -46,61 +46,74 @@ app.use(passport.session());
 
 
 passport.serializeUser(function (user, cb) {
-  cb(null, user.id);
+    cb(null, user.id);
 });
 
 passport.deserializeUser(function (id, cb) {
-  models.users.findOne({ where: { id: id } }).then(function (user) {
-    cb(null, user);
-  });
+    models.users.findOne({ where: { id: id } }).then(function (user) {
+        cb(null, user);
+    });
 });
 
+app.use(express.static(__dirname + '/public'));
 /* PASSPORT LOCAL AUTHENTICATION */
 
 const LocalStrategy = require('passport-local').Strategy;
 
 passport.use(new LocalStrategy(
-  function (username, password, done) {
-    models.users.findOne({
-      where: {
-        username: username
-      }
-    }).then(function (user) {
-      if (!user) {
-        console.log("no user")
-        return done(null, false);
-      }
+    function (username, password, done) {
+        models.users.findOne({
+            where: {
+                username: username
+            }
+        }).then(function (user) {
+            if (!user) {
+                console.log("no user")
+                return done(null, false);
+            }
 
-      if (user.password != encryptionPassword(password)) {
-        console.log("wrong password")
-        return done(null, false);
-      }
-      console.log("user logged in")
-      return done(null, user);
-    }).catch(function (err) {
-      return done(err);
-    });
-  }
+            if (user.password != encryptionPassword(password)) {
+                console.log("wrong password")
+                return done(null, false);
+            }
+            console.log("user logged in")
+            return done(null, user);
+        }).catch(function (err) {
+            return done(err);
+        });
+    }
 ));
 
 /* SIGNIN SIGNUP */
 
 app.post('/sign-in',
-  passport.authenticate('local', { failureRedirect: '/' }),
-  function (req, res) {
-    res.redirect('/tasks');
-  });
-
-app.post("/sign-up", function (req, response) {
-  models.users.create({
-    userName: req.body.userName,
-    emailAddress: req.body.emailAddress,
-    password: encryptionPassword(req.body.password),
-    userType: req.body.userType,
-  })
-    .then(function (user) {
-      req.login(user, function(){
-        response.redirect("/tasks");
-      })
+    passport.authenticate('local', { failureRedirect: '/' }),
+    function (req, res) {
+        res.render('/home');
     });
+
+app.post("/sign-up", function (req, res) {
+    console.log(req.body)
+    models.users.create({
+        userName: req.body.username,
+        emailAddress: req.body.email,
+        password: encryptionPassword(req.body.password),
+        userType: req.body.userType,
+    })
+        .then(function (user) {
+            req.login(user, function () {
+                res.render("/home");
+            })
+        });
 });
+
+app.get('/sign-out', function (req, res) {
+    if (req.isAuthenticated()) {
+      console.log("The user is logging out.");
+      req.logOut();
+    //   res.redirect("/signin");
+    } else {
+      console.log("no open session")
+    //   res.redirect("/signin");
+    }
+  });
