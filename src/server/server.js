@@ -97,9 +97,6 @@ app.post('/sign-in',
           res.redirect("http://localhost:4200/login");
         }
       }
-    // function (req, res) {
-    //     res.render('/home');
-    // }
     );
 
 app.post("/sign-up", function (req, res) {
@@ -112,9 +109,13 @@ app.post("/sign-up", function (req, res) {
     })
         .then(function (user) {
             req.login(user, function () {
-                // res.render("/home");
                 res.redirect("http://localhost:4200/home")
                 console.log("The user registered.")
+            })
+        }).catch(err => {
+            res.status(500).send({
+                message:
+                err.message || "Something bad is happening in Oz!"
             })
         });
 });
@@ -129,3 +130,99 @@ app.get('/sign-out', function (req, res) {
       res.redirect("http://localhost:4200/login");
     }
   });
+
+/* TOURNAMENT SERVICE */
+
+// Grab all tournaments
+app.get('/', function (req, res){
+    if (req.isAuthenticated()) {
+        models.tournaments.findAll({}).then(function(data){
+            res.send(data)
+        }).catch(err => {
+            res.status(500).send({
+                message:
+                err.message || "Something bad is happening in Oz!"
+            })
+        })
+      } else {
+        res.redirect("http://localhost:4200/login");
+      }
+})
+
+// View selected tournament
+app.get('/:id', function (req, res){
+    if (req.isAuthenticated()) {
+        models.tournaments.findOne({
+            where:{
+                id: req.params.id
+            }
+        }).then(function(data){
+            res.send(data)
+        }).catch(err => {
+            res.status(500).send({
+                message:
+                err.message || "Something bad is happening in Oz!"
+            })
+        })
+      } else {
+        res.redirect("http://localhost:4200/login");
+      }
+})
+
+// Create tournament
+app.post('/', function (req, res){
+    if (req.isAuthenticated()) {
+        models.tournaments.create({
+            name: req.body.name,
+            description: req.body.description,
+            contact: req.body.contact,
+            type: req.body.type
+        }).then(function(data){
+            res.send(data)
+        }).catch(err => {
+            res.status(500).send({
+                message:
+                err.message || "Something bad is happening in Oz!"
+            })
+        })
+      } else {
+        res.redirect("http://localhost:4200/login");
+      }
+})
+
+//Update tournament
+app.put('/:id', function (req, res){
+    if (req.isAuthenticated()) {
+        models.tournaments.update(
+            req.body,
+            { where: { id: req.params.id }}
+        ).then(function(data){
+            res.send(data)
+        }).catch(err => {
+            res.status(500).send({
+                message:
+                err.message || "Something bad is happening in Oz!"
+            })
+        })
+      } else {
+        res.redirect("http://localhost:4200/login");
+      }
+})
+//Delete tournament
+app.delete('/:id', function (req, res){
+    if (req.isAuthenticated()) {
+        models.tournaments.destroy({ 
+            where: { id: req.params.id 
+            }
+        }).then(function(data){
+            res.send(data)
+        }).catch(err => {
+            res.status(500).send({
+                message:
+                err.message || "Something bad is happening in Oz!"
+            })
+        })
+      } else {
+        res.redirect("http://localhost:4200/login");
+      }
+})
