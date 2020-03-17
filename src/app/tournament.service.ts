@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-const baseUrl = 'http://localhost:3000/';
+const baseUrl = 'http://localhost:3000';
 
 @Injectable({
   providedIn: 'root'
@@ -28,6 +28,18 @@ export class TournamentService {
 
   delete(id) {
     return this.http.delete(`${baseUrl}/${id}`);
+  }
+
+  signUp(data) {
+    return this.http.post(`${baseUrl}/sign-up`, data, {responseType: 'text'})
+  }
+
+  signIn(data) {
+    return this.http.post(`${baseUrl}/sign-in`, data, {responseType: 'text'})
+  }
+
+  signOut() {
+    return this.http.get(`${baseUrl}/sign-out`, {responseType: 'text'})
   }
 
 }
