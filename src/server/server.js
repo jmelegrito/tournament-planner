@@ -7,6 +7,7 @@ const bodyParser = require('body-parser');
 const cookieSession = require("cookie-session")
 const cookieParser = require("cookie-parser")
 const Sequelize = require("sequelize")
+const cors = require('cors')
 
 var pbkdf2 = require('pbkdf2');
 var salt = "XZoLh12Teu";
@@ -19,6 +20,12 @@ function encryptionPassword(password) {
 
     return hash;
 }
+
+var corsOptions = {
+    origin: "http://localhost:4200"
+}
+
+app.use(cors(corsOptions));
 
 app.use(cookieSession({
     maxAge: 24 * 60 * 60 * 1000,
@@ -91,10 +98,10 @@ app.post('/sign-in',
     passport.authenticate('local'), function (req, res) {
         if (req.isAuthenticated()) {
           console.log("The user is logged in.");
-          res.redirect("http://localhost:4200/home");
+          res.send("http://localhost:4200/home");
         } else {
           console.log("no open session")
-          res.redirect("http://localhost:4200/login");
+          res.send("http://localhost:4200/login");
         }
       }
     );
@@ -109,7 +116,7 @@ app.post("/sign-up", function (req, res) {
     })
         .then(function (user) {
             req.login(user, function () {
-                res.redirect("http://localhost:4200/home")
+                res.send("/home")
                 console.log("The user registered.")
             })
         }).catch(err => {
@@ -124,10 +131,10 @@ app.get('/sign-out', function (req, res) {
     if (req.isAuthenticated()) {
       console.log("The user is logging out.");
       req.logOut();
-      res.redirect("http://localhost:4200/home");
+      res.send("http://localhost:4200/login");
     } else {
       console.log("no open session")
-      res.redirect("http://localhost:4200/login");
+      res.send("http://localhost:4200/login");
     }
   });
 
@@ -135,7 +142,6 @@ app.get('/sign-out', function (req, res) {
 
 // Grab all tournaments
 app.get('/', function (req, res){
-    if (req.isAuthenticated()) {
         models.tournaments.findAll({}).then(function(data){
             res.send(data)
         }).catch(err => {
@@ -144,14 +150,10 @@ app.get('/', function (req, res){
                 err.message || "Something bad is happening in Oz!"
             })
         })
-      } else {
-        res.redirect("http://localhost:4200/login");
-      }
 })
 
 // View selected tournament
 app.get('/:id', function (req, res){
-    if (req.isAuthenticated()) {
         models.tournaments.findOne({
             where:{
                 id: req.params.id
@@ -164,14 +166,10 @@ app.get('/:id', function (req, res){
                 err.message || "Something bad is happening in Oz!"
             })
         })
-      } else {
-        res.redirect("http://localhost:4200/login");
-      }
 })
 
 // Create tournament
 app.post('/', function (req, res){
-    if (req.isAuthenticated()) {
         models.tournaments.create({
             name: req.body.name,
             description: req.body.description,
@@ -185,14 +183,10 @@ app.post('/', function (req, res){
                 err.message || "Something bad is happening in Oz!"
             })
         })
-      } else {
-        res.redirect("http://localhost:4200/login");
-      }
 })
 
 //Update tournament
 app.put('/:id', function (req, res){
-    if (req.isAuthenticated()) {
         models.tournaments.update(
             req.body,
             { where: { id: req.params.id }}
@@ -204,13 +198,9 @@ app.put('/:id', function (req, res){
                 err.message || "Something bad is happening in Oz!"
             })
         })
-      } else {
-        res.redirect("http://localhost:4200/login");
-      }
 })
 //Delete tournament
 app.delete('/:id', function (req, res){
-    if (req.isAuthenticated()) {
         models.tournaments.destroy({ 
             where: { id: req.params.id 
             }
@@ -222,7 +212,4 @@ app.delete('/:id', function (req, res){
                 err.message || "Something bad is happening in Oz!"
             })
         })
-      } else {
-        res.redirect("http://localhost:4200/login");
-      }
 })
