@@ -98,10 +98,10 @@ app.post('/sign-in',
     passport.authenticate('local'), function (req, res) {
         if (req.isAuthenticated()) {
           console.log("The user is logged in.");
-          res.send("http://localhost:4200/home");
+          res.send("/home");
         } else {
           console.log("no open session")
-          res.send("http://localhost:4200/login");
+          res.send("/login");
         }
       }
     );
@@ -131,10 +131,10 @@ app.get('/sign-out', function (req, res) {
     if (req.isAuthenticated()) {
       console.log("The user is logging out.");
       req.logOut();
-      res.send("http://localhost:4200/login");
+      res.send("/login");
     } else {
       console.log("no open session")
-      res.send("http://localhost:4200/login");
+      res.send("/login");
     }
   });
 

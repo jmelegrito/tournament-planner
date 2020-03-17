@@ -8,7 +8,7 @@ import { Router } from '@angular/router'
   styleUrls: ['./signUpForm.component.css']
 })
 export class SignUpFormComponent implements OnInit {
-  user = {
+  signUpUser = {
     userName: '',
     emailAddress: '',
     password: '',
@@ -22,12 +22,12 @@ export class SignUpFormComponent implements OnInit {
   ngOnInit() {
   }
 
-  signUpUser() {
+  signUpUserFunction() {
     const data = {
-      userName: this.user.userName,
-      emailAddress: this.user.emailAddress,
-      password: this.user.password,
-      userType: this.user.userType
+      userName: this.signUpUser.userName,
+      emailAddress: this.signUpUser.emailAddress,
+      password: this.signUpUser.password,
+      userType: this.signUpUser.userType
     }
     this.tournamentService.signUp(data)
         .subscribe(
@@ -39,7 +39,7 @@ export class SignUpFormComponent implements OnInit {
 
   newUser() {
     this.submitted = false;
-    this.user = {
+    this.signUpUser = {
       userName: '',
       emailAddress: '',
       password: '',
