@@ -8,7 +8,7 @@
           class="form-control"
           id="signUpUserName"
           required
-          [(ngModel)]="user.userName"
+          [(ngModel)]="signUpUser.userName"
           name="userName"
         />
       </div>
@@ -19,7 +19,7 @@
           class="form-control"
           id="emailAddress"
           required
-          [(ngModel)]="user.emailAddress"
+          [(ngModel)]="signUpUser.emailAddress"
           name="emailAddress"
           type="email"
         />
@@ -31,7 +31,7 @@
           class="form-control"
           id="signUpPassword"
           required
-          [(ngModel)]="user.password"
+          [(ngModel)]="signUpUser.password"
           name="password"
         />
       </div>
@@ -41,7 +41,7 @@
             class="form-control"
             id="userType"
             required
-            [(ngModel)]="user.userType"
+            [(ngModel)]="signUpUser.userType"
             name="userType">
                 <option disabled>Select Your Account Type</option>
                 <option value="participant">Participant</option>
