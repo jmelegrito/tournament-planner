@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TournamentService } from '../tournament.service'
 import { Router } from '@angular/router'
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-signUpForm',
@@ -13,11 +14,9 @@ export class SignUpFormComponent implements OnInit {
     emailAddress: '',
     password: '',
     userType: '',
-    created: false
   };
-  submitted = false;
 
-  constructor(private tournamentService: TournamentService, private router: Router) { }
+  constructor(private tournamentService: TournamentService, private router: Router, private authService: AuthService) { }
 
   ngOnInit() {
   }
@@ -32,19 +31,8 @@ export class SignUpFormComponent implements OnInit {
     this.tournamentService.signUp(data)
         .subscribe(
           response => {
-            this.router.navigate([response])
+            this.authService.setUserInfo(response)
+            this.router.navigate(['home'])
           });
-    this.submitted = true;
-  }
-
-  newUser() {
-    this.submitted = false;
-    this.signUpUser = {
-      userName: '',
-      emailAddress: '',
-      password: '',
-      userType: '',
-      created: false
-    };
   }
 } 
