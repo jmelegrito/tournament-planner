@@ -116,7 +116,11 @@ app.post("/sign-up", function (req, res) {
     })
         .then(function (user) {
             req.login(user, function () {
-                res.send("/home")
+                data = {
+                    username: req.body.userName,
+                    password: req.body.password
+                }
+                res.send(data)
                 console.log("The user registered.")
             })
         }).catch(err => {

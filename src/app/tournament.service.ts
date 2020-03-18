@@ -31,11 +31,11 @@ export class TournamentService {
   }
 
   signUp(data) {
-    return this.http.post(`${baseUrl}/sign-up`, data, {responseType: 'text'})
+    return this.http.post(`${baseUrl}/sign-up`, data)
   }
 
   signIn(data) {
-    return this.http.post(`${baseUrl}/sign-in`, data, {responseType: 'text'})
+    return this.http.post(`${baseUrl}/sign-in`, data)
   }
 
   signOut() {

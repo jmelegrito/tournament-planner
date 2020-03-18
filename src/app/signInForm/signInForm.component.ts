@@ -12,9 +12,7 @@ export class SignInFormComponent implements OnInit {
   signInUser = {
     userName: '',
     password: '',
-    created: false
   };
-  submitted = false;
 
   constructor(private tournamentService: TournamentService, private router: Router, private authService: AuthService) { }
 
@@ -31,16 +29,5 @@ export class SignInFormComponent implements OnInit {
             this.authService.setUserInfo(response)
             this.router.navigate(['home'])
           });
-    this.submitted = true;
   }
-
-  newUser() {
-    this.submitted = false;
-    this.signInUser = {
-      userName: '',
-      password: '',
-      created: false
-    };
-  }
-
 }
