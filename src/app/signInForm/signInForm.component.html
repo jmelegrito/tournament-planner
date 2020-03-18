@@ -1,6 +1,6 @@
 <h1>SIGNIN</h1>
 <div class="submit-form">
-    <div *ngIf="!submitted">
+    <div>
       <div class="form-group">
         <label for="userName">Username</label>
         <input
@@ -24,10 +24,5 @@
       </div>
   
       <button (click)="signInUserFunction()" class="btn btn-success">Submit</button>
-    </div>
-  
-    <div *ngIf="submitted">
-      <h4>You registered successfully!</h4>
-      <button class="btn btn-success" (click)="newUser()">Add</button>
     </div>
   </div>

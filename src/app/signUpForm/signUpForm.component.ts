@@ -14,9 +14,7 @@ export class SignUpFormComponent implements OnInit {
     emailAddress: '',
     password: '',
     userType: '',
-    created: false
   };
-  submitted = false;
 
   constructor(private tournamentService: TournamentService, private router: Router, private authService: AuthService) { }
 
@@ -36,17 +34,5 @@ export class SignUpFormComponent implements OnInit {
             this.authService.setUserInfo(response)
             this.router.navigate(['home'])
           });
-    this.submitted = true;
-  }
-
-  newUser() {
-    this.submitted = false;
-    this.signUpUser = {
-      userName: '',
-      emailAddress: '',
-      password: '',
-      userType: '',
-      created: false
-    };
   }
 } 
