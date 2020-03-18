@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TournamentService } from '../tournament.service'
 import { Router } from '@angular/router'
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-signInForm',
@@ -15,7 +16,7 @@ export class SignInFormComponent implements OnInit {
   };
   submitted = false;
 
-  constructor(private tournamentService: TournamentService, private router: Router) { }
+  constructor(private tournamentService: TournamentService, private router: Router, private authService: AuthService) { }
 
   ngOnInit() {
   }
@@ -27,7 +28,8 @@ export class SignInFormComponent implements OnInit {
     this.tournamentService.signIn(data)
         .subscribe(
           response => {
-            this.router.navigate([response])
+            this.authService.setUserInfo(response)
+            this.router.navigate(['home'])
           });
     this.submitted = true;
   }
