@@ -11,6 +11,8 @@ import { HomeComponent } from './home/home.component';
 import { SignUpFormComponent } from './signUpForm/signUpForm.component';
 import { SignInFormComponent } from './signInForm/signInForm.component';
 import { CreateTournamentFormComponent } from './create-tournament-form/create-tournament-form.component';
+import { CheckTournamentParentComponent } from './check-tournament-parent/check-tournament-parent.component';
+import { CheckTournamentChildComponent } from './check-tournament-child/check-tournament-child.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { CreateTournamentFormComponent } from './create-tournament-form/create-t
     HomeComponent,
     SignUpFormComponent,
     SignInFormComponent,
-    CreateTournamentFormComponent
+    CreateTournamentFormComponent,
+    CheckTournamentParentComponent,
+    CheckTournamentChildComponent
   ],
   imports: [
     BrowserModule,
