@@ -5,11 +5,13 @@ module.exports = (sequelize, DataTypes) => {
     emailAddress: DataTypes.STRING,
     password: DataTypes.STRING,
     userType: DataTypes.STRING,
-    tournamentsHosted: DataTypes.STRING,
-    tournamentsJoined: DataTypes.STRING
+    tournamentJoined: DataTypes.INTEGER,
+    bracket: DataTypes.STRING
   }, {});
   users.associate = function(models) {
-    // associations can be defined here
+    users.hasMany(models.tournaments, {
+      foreignKey: 'id'
+    })
   };
   return users;
 };

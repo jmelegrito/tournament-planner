@@ -4,10 +4,13 @@ module.exports = (sequelize, DataTypes) => {
     name: DataTypes.STRING,
     description: DataTypes.STRING,
     contact: DataTypes.STRING,
-    type: DataTypes.STRING
+    type: DataTypes.STRING,
+    organizer: DataTypes.INTEGER
   }, {});
   tournaments.associate = function(models) {
-    // associations can be defined here
+    tournaments.belongsTo(models.users, {
+      foreignKey: "organizer"
+    })
   };
   return tournaments;
 };
