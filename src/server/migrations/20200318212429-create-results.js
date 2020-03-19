@@ -1,35 +1,21 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('tournaments', {
+    return queryInterface.createTable('results', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      name: {
+      homeUser: {
         type: Sequelize.STRING
       },
-      description: {
+      awayUser: {
         type: Sequelize.STRING
       },
-      contact: {
+      winningUser: {
         type: Sequelize.STRING
-      },
-      type: {
-        type: Sequelize.STRING
-      },
-      organizer: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: {
-            tableName: "users"
-          },
-          key: "id"
-        },
-        onDelete: "cascade",
-        onUpdate: "cascade"
       },
       createdAt: {
         allowNull: false,
@@ -42,6 +28,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('tournaments');
+    return queryInterface.dropTable('results');
   }
 };
