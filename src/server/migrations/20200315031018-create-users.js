@@ -21,7 +21,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       tournamentJoined: {
-        type: Sequelize.Integer,
+        type: Sequelize.INTEGER,
         references: {
           model: {
             tableName: "tournaments"
