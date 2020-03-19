@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http'
-
+import {MatTableModule} from '@angular/material/table';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -11,6 +11,11 @@ import { HomeComponent } from './home/home.component';
 import { SignUpFormComponent } from './signUpForm/signUpForm.component';
 import { SignInFormComponent } from './signInForm/signInForm.component';
 import { CreateTournamentFormComponent } from './create-tournament-form/create-tournament-form.component';
+import { MatchupComponent } from './matchup/matchup.component';
+import { SingleBracketComponent } from './single-bracket/single-bracket.component';
+import { DisplayComponent } from './display/display.component';
+import {MatCardModule} from '@angular/material/card';
+
 
 @NgModule({
   declarations: [
@@ -19,14 +24,19 @@ import { CreateTournamentFormComponent } from './create-tournament-form/create-t
     HomeComponent,
     SignUpFormComponent,
     SignInFormComponent,
-    CreateTournamentFormComponent
+    CreateTournamentFormComponent,
+    MatchupComponent,
+    SingleBracketComponent,
+    DisplayComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatTableModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
