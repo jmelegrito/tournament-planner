@@ -20,10 +20,18 @@ module.exports = {
       userType: {
         type: Sequelize.STRING
       },
-      tournamentsHosted: {
-        type: Sequelize.STRING
+      tournamentJoined: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: {
+            tableName: "tournaments"
+          },
+          key: "id"
+        },
+        onDelete: "cascade",
+        onUpdate: "cascade"
       },
-      tournamentsJoined: {
+      bracket: {
         type: Sequelize.STRING
       },
       createdAt: {

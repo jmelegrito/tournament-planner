@@ -11,11 +11,8 @@ import { HomeComponent } from './home/home.component';
 import { SignUpFormComponent } from './signUpForm/signUpForm.component';
 import { SignInFormComponent } from './signInForm/signInForm.component';
 import { CreateTournamentFormComponent } from './create-tournament-form/create-tournament-form.component';
-import { MatchupComponent } from './matchup/matchup.component';
-import { SingleBracketComponent } from './single-bracket/single-bracket.component';
-import { DisplayComponent } from './display/display.component';
-import {MatCardModule} from '@angular/material/card';
-
+import { CheckTournamentParentComponent } from './check-tournament-parent/check-tournament-parent.component';
+import { CheckTournamentChildComponent } from './check-tournament-child/check-tournament-child.component';
 
 @NgModule({
   declarations: [
@@ -25,9 +22,8 @@ import {MatCardModule} from '@angular/material/card';
     SignUpFormComponent,
     SignInFormComponent,
     CreateTournamentFormComponent,
-    MatchupComponent,
-    SingleBracketComponent,
-    DisplayComponent
+    CheckTournamentParentComponent,
+    CheckTournamentChildComponent
   ],
   imports: [
     BrowserModule,

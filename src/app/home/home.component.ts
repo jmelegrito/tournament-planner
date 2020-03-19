@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TournamentService } from '../tournament.service'
 
 @Component({
   selector: 'app-home',
@@ -7,10 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  tournamentMasterList = []
+
+  constructor(private tournamentService: TournamentService) { }
 
   ngOnInit() {
 
+    this.tournamentService.getAll().subscribe( response => {
+      let list = Object.values(response);
+      list.map((data) => this.tournamentMasterList.push(data))
+    })
   }
 
 }
