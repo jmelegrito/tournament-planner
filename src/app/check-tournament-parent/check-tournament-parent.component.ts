@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { TournamentService } from '../tournament.service'
 
 @Component({
   selector: 'app-check-tournament-parent',
@@ -7,12 +8,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CheckTournamentParentComponent implements OnInit {
 
-  tournament = {
-    name: "dummy tournament"
-  }
-  constructor() { }
+  tournament : object
+
+  @Input() tourneyList: Array<object>;
+
+  constructor(private tournamentService: TournamentService) { }
 
   ngOnInit() {
   }
+
+  checkTournament(){
+    let select = (<HTMLElement>event.target).id
+    this.tournamentService.get(select).subscribe(
+      response => {this.tournament = response
+        console.log(this.tournament)}
+      
+    )
+    
+    
+  }
+  
+
 
 }

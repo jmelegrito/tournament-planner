@@ -1,2 +1,7 @@
-<p>See tournament here</p>
+<div *ngIf="selectedTournament">
 {{selectedTournament.name}}
+{{selectedTournament.description}}
+{{selectedTournament.contact}}
+{{selectedTournament.type}}
+<button (click)="joinTournament()">Join</button>
+</div>

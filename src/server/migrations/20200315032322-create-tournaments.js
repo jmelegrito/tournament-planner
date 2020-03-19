@@ -20,6 +20,17 @@ module.exports = {
       type: {
         type: Sequelize.STRING
       },
+      organizer: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: {
+            tableName: "users"
+          },
+          key: "id"
+        },
+        onDelete: "cascade",
+        onUpdate: "cascade"
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

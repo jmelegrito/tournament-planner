@@ -1,3 +1,10 @@
-<p>Select tournament here</p>
-<app-check-tournament-child [selectedTournament] = "tournament"></app-check-tournament-child>
-
+<div *ngFor="let tour of tourneyList">
+    <div>
+        {{tour.name}}
+        {{tour.description}}
+        {{tour.contact}}
+        {{tour.type}}
+        <button (click)="checkTournament()" id={{tour.id}}>View</button>
+    </div>
+</div>
+<app-check-tournament-child [selectedTournament]="tournament"></app-check-tournament-child>

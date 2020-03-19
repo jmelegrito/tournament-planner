@@ -62,7 +62,6 @@ passport.deserializeUser(function (id, cb) {
     });
 });
 
-app.use(express.static(__dirname + '/public'));
 /* PASSPORT LOCAL AUTHENTICATION */
 
 const LocalStrategy = require('passport-local').Strategy;
