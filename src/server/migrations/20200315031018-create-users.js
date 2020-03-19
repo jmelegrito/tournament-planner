@@ -31,6 +31,9 @@ module.exports = {
         onDelete: "cascade",
         onUpdate: "cascade"
       },
+      bracket: {
+        type: Sequelize.STRING
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
