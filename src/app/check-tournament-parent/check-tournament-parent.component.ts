@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CheckTournamentParentComponent implements OnInit {
 
+  tournament = {
+    name: "dummy tournament"
+  }
   constructor() { }
 
   ngOnInit() {
