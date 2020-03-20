@@ -10,8 +10,6 @@ import { SingleBracketComponent } from './single-bracket/single-bracket.componen
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'home', component: HomeComponent, canActivate: [AuthGuardService] },
-  { path: 'display', component: DisplayComponent },
-  { path: 'single', component: SingleBracketComponent }
 ];
 
 @NgModule({
