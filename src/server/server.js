@@ -97,7 +97,19 @@ app.post('/sign-in',
     passport.authenticate('local'), function (req, res) {
         if (req.isAuthenticated()) {
           console.log("The user is logged in.");
-          res.send(req.body);
+          models.users.findOne({
+              where: {
+                  userName: req.body.userName
+              }
+          }).then( user => {
+              loggedInUser = {
+                userName: user.userName,
+                password: user.password,
+                userType: user.userType
+              }
+              res.send(loggedInUser);
+          })
+          
         } else {
           console.log("no open session")
           res.send("/login");
@@ -117,7 +129,8 @@ app.post("/sign-up", function (req, res) {
             req.login(user, function () {
                 data = {
                     username: req.body.userName,
-                    password: req.body.password
+                    password: encryptionPassword(req.body.password),
+                    userType: req.body.userType
                 }
                 res.send(data)
                 console.log("The user registered.")
