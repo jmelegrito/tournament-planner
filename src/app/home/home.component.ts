@@ -31,7 +31,13 @@ export class HomeComponent implements OnInit {
         this.participantCheck = true
       }
 
+    // this.tournamentService.getParticipants(1).subscribe(
+    //   response => {
+    //     console.log(response)
+    //   }
+    // )
 
+      
   }
 
 }

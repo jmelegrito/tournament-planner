@@ -21,7 +21,10 @@ export class TournamentService {
   getTourney(id) {
     return this.http.get(`${baseUrl}/tourney/${id}`);
   }
-
+  
+  getParticipants(id){
+    return this.http.get(`${baseUrl}/participantList/${id}`);
+  }
 
   create(data) {
     return this.http.post(baseUrl, data);

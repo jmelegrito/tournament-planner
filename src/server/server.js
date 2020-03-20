@@ -204,6 +204,24 @@ app.get('/:id', function (req, res) {
     })
 })
 
+//View participants of a specific tournament
+
+app.get('/participantList/:id', function (req, res) {
+    models.users.findAll({
+        where: {
+            tournamentJoined: req.params.id
+        }
+    }).then(function (data) {
+        res.send(data)
+    }).catch(err => {
+        res.status(500).send({
+            message:
+                err.message || "Something bad is happening in Oz!"
+        })
+    })
+})
+
+
 // Create tournament
 app.post('/', function (req, res) {
     models.tournaments.create({
@@ -251,3 +269,4 @@ app.delete('/:id', function (req, res) {
         })
     })
 })
+
