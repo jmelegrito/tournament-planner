@@ -1,5 +1,5 @@
 <div class="submit-form">
-    <div *ngIf="!submitted">
+    <div *ngIf="organizerCheck">
       <div class="form-group">
         <label for="name">Tournament Name</label>
         <input
@@ -50,10 +50,5 @@
       </div>
   
       <button (click)="saveTournament()" class="btn btn-success">Submit</button>
-    </div>
-  
-    <div *ngIf="submitted">
-      <h4>You submitted successfully!</h4>
-      <button class="btn btn-success" (click)="newTournament()">Add</button>
     </div>
   </div>

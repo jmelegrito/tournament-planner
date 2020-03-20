@@ -10,6 +10,7 @@ export class HomeComponent implements OnInit {
 
   tournamentMasterList = []
   kindOfUser = {}
+  participantCheck = false
 
   constructor(private tournamentService: TournamentService) { }
 
@@ -20,8 +21,12 @@ export class HomeComponent implements OnInit {
       list.map((data) => this.tournamentMasterList.push(data))
     });
 
-      this.kindOfUser = localStorage.getItem('userInfo')
-      console.log(typeof this.kindOfUser)
+      this.kindOfUser = localStorage.getItem('user')
+
+      if(this.kindOfUser === 'participant'){
+        this.participantCheck = true
+      }
+
 
   }
 

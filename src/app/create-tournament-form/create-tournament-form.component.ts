@@ -14,7 +14,6 @@ export class CreateTournamentFormComponent implements OnInit {
     type: '',
     created: false
   };
-  submitted = false;
   organizerCheck = false;
   
   @Input() userType: Object;
@@ -22,6 +21,9 @@ export class CreateTournamentFormComponent implements OnInit {
   constructor(private tournamentService: TournamentService) { }
 
   ngOnInit() {
+    if(this.userType === 'Organizer'){
+      this.organizerCheck = true
+    }
   }
 
   saveTournament() {
@@ -37,11 +39,9 @@ export class CreateTournamentFormComponent implements OnInit {
           response => {
             console.log(response);
           });
-    this.submitted = true;
   }
 
   newTournament() {
-    this.submitted = false;
     this.tournament = {
       name: '',
       description: '',
