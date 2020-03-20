@@ -4,6 +4,7 @@
         {{tourney.description}}
         {{tourney.contact}}
         {{tourney.type}}
-        <button (click)="viewTournament()" id={{tourney.id}}>View</button>
+        <button (click)="viewTournament(tourney.id)">View</button>
     </div>
 </div>
+<app-single-bracket [tournamentId] = 'grabbedTourneyId'></app-single-bracket>
