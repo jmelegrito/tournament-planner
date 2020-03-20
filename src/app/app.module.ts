@@ -32,7 +32,6 @@ import { CheckTournamentChildComponent } from './check-tournament-child/check-to
     FormsModule,
     HttpClientModule,
     MatTableModule,
-    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
