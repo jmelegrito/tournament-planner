@@ -25,19 +25,9 @@ export class HomeComponent implements OnInit {
       this.kindOfUser = localStorage.getItem('user')
       this.idOfUser = localStorage.getItem('id')
 
-      console.log(this.idOfUser)
-
       if(this.kindOfUser === 'participant'){
         this.participantCheck = true
-      }
-
-    // this.tournamentService.getParticipants(1).subscribe(
-    //   response => {
-    //     console.log(response)
-    //   }
-    // )
-
-      
+      }      
   }
 
 }

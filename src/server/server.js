@@ -254,6 +254,22 @@ app.put('/:id', function (req, res) {
         })
     })
 })
+
+app.put('/join/:id', function (req, res) {
+    models.users.update(
+        req.body,
+        { where: { id: req.params.id } }
+    ).then(function (data) {
+        res.send(data)
+    }).catch(err => {
+        res.status(500).send({
+            message:
+                err.message || "Something bad is happening in Oz!"
+        })
+    })
+})
+
+
 //Delete tournament
 app.delete('/:id', function (req, res) {
     models.tournaments.destroy({

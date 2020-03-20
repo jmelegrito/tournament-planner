@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ChangeDetectorRef } from '@angular/core';
 import { TournamentService } from '../tournament.service'
 
 @Component({
@@ -8,21 +8,42 @@ import { TournamentService } from '../tournament.service'
 })
 export class CheckTournamentParentComponent implements OnInit {
 
-  tournament : object
+  tournament: object
+  tournamentParticipants = []
+  toggler = false
 
   @Input() tourneyList: Array<object>;
 
-  constructor(private tournamentService: TournamentService) { }
+  constructor(private tournamentService: TournamentService, private changeDetector: ChangeDetectorRef) { }
 
   ngOnInit() {
   }
 
-  checkTournament(){
-    let select = (<HTMLElement>event.target).id
-    this.tournamentService.get(select).subscribe(
-      response => {this.tournament = response
-        console.log(this.tournament)}
-      
+
+
+  checkTournament(id) {
+    this.tournamentService.get(id).subscribe(
+      response => {
+      this.tournament = response
+      this.toggler=false
+      this.changeDetector.detectChanges();
+      this.toggler=true
+      }
     )
+  }
+
+  getList(id){
+    // this.tournamentService.getParticipants(id).subscribe( response => {
+    //   let list = Object.values(response);
+    //   list.map((data) => this.tournamentParticipants.push(data))
+    // });
+    localStorage.setItem('tourneyChosen', id)
+
+
+  }
+
+  queryServer(id){
+    this.checkTournament(id);
+    this.getList(id)
   }
 }
