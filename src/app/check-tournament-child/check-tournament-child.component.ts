@@ -9,15 +9,31 @@ import { TournamentService } from '../tournament.service';
 export class CheckTournamentChildComponent implements OnInit {
 
   @Input() selectedTournament: Array<object>;
+  @Input() toggleFlag: boolean;
+
+  participant : number
+  
 
   constructor(private tournamentService : TournamentService) { }
 
   ngOnInit() {
-    
   }
 
-  joinTournament() {
-    console.log("Joined!")
+  joinTournament(data) {
+
+
+    const info = {
+      tournamentJoined : data.id
+    }
+    
+    this.participant = parseInt(localStorage.getItem('id'))
+
+    this.tournamentService.join(this.participant, info).subscribe(
+      response => {
+        console.log(response)
+      }
+    )
+
   }
 
 }

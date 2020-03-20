@@ -4,7 +4,7 @@
         {{tour.description}}
         {{tour.contact}}
         {{tour.type}}
-        <button (click)="checkTournament()" id={{tour.id}}>View</button>
+        <button (click)="queryServer(tour.id)" id={{tour.id}}>View</button>
     </div>
 </div>
-<app-check-tournament-child [selectedTournament]="tournament"></app-check-tournament-child>
+<app-check-tournament-child *ngIf="toggler" [selectedTournament]="tournament"></app-check-tournament-child>

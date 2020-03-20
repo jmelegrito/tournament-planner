@@ -30,6 +30,10 @@ export class TournamentService {
     return this.http.post(baseUrl, data);
   }
 
+  join(id, data) {
+    return this.http.put(`${baseUrl}/join/${id}`, data)
+  }
+
   update(id, data) {
     return this.http.put(`${baseUrl}/${id}`, data);
   }

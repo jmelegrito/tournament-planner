@@ -1,32 +1,8 @@
 <p>All Teams</p>
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+<div *ngFor="let teams of thisTournamentList">
+  {{teams.userName}}
 
-    <!--- Note that these columns can be defined in any order.
-          The actual rendered columns are set as a property on the row definition" -->
- 
-    <ng-container matColumnDef="userName">
-      <th mat-header-cell *matHeaderCellDef> Team </th>
-      <td mat-cell *matCellDef="let element"> {{element.userName}} </td>
-    </ng-container>
- 
-    <ng-container matColumnDef="userType">
-      <th mat-header-cell *matHeaderCellDef> Tournament Type </th>
-      <td mat-cell *matCellDef="let element"> {{element.userType}} </td>
-    </ng-container>
-  
-    <ng-container matColumnDef="tournamentHosted">
-      <th mat-header-cell *matHeaderCellDef> Tournament Hosted </th>
-      <td mat-cell *matCellDef="let element"> {{element.tournamentHosted}} </td>
-    </ng-container>
-  
-    <ng-container matColumnDef="tournamentJoined">
-      <th mat-header-cell *matHeaderCellDef> Tournament Joined </th>
-      <td mat-cell *matCellDef="let element"> {{element.tournamentJoined}} </td>
-    </ng-container>
-  
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  </table>
+</div>
 
     
   
