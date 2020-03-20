@@ -17,7 +17,15 @@ export class SingleBracketComponent implements OnInit {
 
   constructor(private tournamentService: TournamentService) { }
 
+  organizerCheck= false
+
   ngOnInit() {
+    let user = localStorage.getItem('user')
+
+    if(user === 'Organizer'){
+      this.organizerCheck = true
+    }
+
     this.tournamentService.getParticipants(1).subscribe( response => {
       let list = Object.values(response);
       list.map((data) => this.tournamentParticipantList.push(data))

@@ -19,6 +19,9 @@ import {MatCardModule} from '@angular/material/card';
 import { MatchupComponent } from './matchup/matchup.component';
 import {MatSelectModule} from '@angular/material/select';
 import { ShowOrganizedTourneyComponent } from './show-organized-tourney/show-organized-tourney.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -45,7 +48,10 @@ import { ShowOrganizedTourneyComponent } from './show-organized-tourney/show-org
     HttpClientModule,
     MatTableModule,
     MatCardModule,
-    MatSelectModule
+    MatSelectModule,
+    MatCheckboxModule,
+    MatFormFieldModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

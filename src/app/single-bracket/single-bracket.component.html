@@ -3,31 +3,46 @@
 <app-matchup></app-matchup>
 <hr>
 
-<mat-card>
+<mat-card>    
+  <mat-checkbox *ngIf="organizerCheck"[formControl]="disableSelect">Disable select</mat-checkbox>
   <div class="bracket">
-    
     <section class="round quarterfinals">
       <div class="winners">
         <div class="matchups">
           <div class="matchup">
             <div class="participants">
-              <mat-card class='participant'><mat-form-field>
-                  <mat-select>
-                  <mat-option *ngFor="let t of tournamentParticipantList" [value]="t">{{t.userName}}</mat-option>
-                    </mat-select>
-                </mat-form-field></mat-card>
-              <mat-card class='participant'><mat-form-field>
-
-                  <mat-select>
-                  <mat-option *ngFor="let t of tournamentParticipantList" [value]="t">{{t.userName}}</mat-option>
-                    </mat-select>
-                </mat-form-field></mat-card>
+              <mat-card class='participant' id="1a">
+                <mat-form-field>
+                  <mat-select [disabled]="disableSelect.value">
+                    <mat-option *ngFor="let t of tournamentParticipantList" [value]="t">{{t.userName}}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </mat-card>
+              <mat-card class='participant'id="1b">
+                <mat-form-field>
+                  <mat-select [disabled]="disableSelect.value">
+                    <mat-option *ngFor="let t of tournamentParticipantList" [value]="t">{{t.userName}}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </mat-card>
             </div>
           </div>
           <div class="matchup">
             <div class="participants">
-                <mat-card class='participant'></mat-card>
-                <mat-card class='participant'></mat-card>
+              <mat-card class='participant'id="1c">
+                <mat-form-field>
+                  <mat-select [disabled]="disableSelect.value">
+                    <mat-option *ngFor="let t of tournamentParticipantList" [value]="t">{{t.userName}}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </mat-card>
+              <mat-card class='participant'id="1d">
+                <mat-form-field>
+                  <mat-select [disabled]="disableSelect.value">
+                    <mat-option *ngFor="let t of tournamentParticipantList" [value]="t">{{t.userName}}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </mat-card>
             </div>
           </div>
         </div>
@@ -40,14 +55,38 @@
         <div class="matchups">
           <div class="matchup">
             <div class="participants">
-                <mat-card class='participant'></mat-card>
-                <mat-card class='participant'></mat-card>
+              <mat-card class='participant'id="1e">
+                <mat-form-field>
+                  <mat-select [disabled]="disableSelect.value">
+                    <mat-option *ngFor="let t of tournamentParticipantList" [value]="t">{{t.userName}}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </mat-card>
+              <mat-card class='participant'id="1f">
+                <mat-form-field>
+                  <mat-select [disabled]="disableSelect.value">
+                    <mat-option *ngFor="let t of tournamentParticipantList" [value]="t">{{t.userName}}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </mat-card>
             </div>
           </div>
           <div class="matchup">
             <div class="participants">
-                <mat-card class='participant'></mat-card>
-                <mat-card class='participant'></mat-card>
+              <mat-card class='participant'id="1g">
+                <mat-form-field>
+                  <mat-select [disabled]="disableSelect.value">
+                    <mat-option *ngFor="let t of tournamentParticipantList" [value]="t">{{t.userName}}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </mat-card>
+              <mat-card class='participant'id="1h">
+                <mat-form-field>
+                  <mat-select [disabled]="disableSelect.value">
+                    <mat-option *ngFor="let t of tournamentParticipantList" [value]="t">{{t.userName}}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </mat-card>
             </div>
           </div>
         </div>
@@ -62,14 +101,38 @@
         <div class="matchups">
           <div class="matchup">
             <div class="participants">
-                <mat-card class='participant'></mat-card>
-                <mat-card class='participant'></mat-card>
+              <mat-card class='participant'id="2a">
+                <mat-form-field>
+                  <mat-select [disabled]="disableSelect.value">
+                    <mat-option *ngFor="let t of tournamentParticipantList" [value]="t">{{t.userName}}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </mat-card>
+              <mat-card class='participant'id="2b">
+                <mat-form-field>
+                  <mat-select [disabled]="disableSelect.value">
+                    <mat-option *ngFor="let t of tournamentParticipantList" [value]="t">{{t.userName}}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </mat-card>
             </div>
           </div>
           <div class="matchup">
             <div class="participants">
-                <mat-card class='participant'></mat-card>
-                <mat-card class='participant'></mat-card>
+              <mat-card class='participant'id="2c">
+                <mat-form-field>
+                  <mat-select [disabled]="disableSelect.value">
+                    <mat-option *ngFor="let t of tournamentParticipantList" [value]="t">{{t.userName}}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </mat-card>
+              <mat-card class='participant'id="2d">
+                <mat-form-field>
+                  <mat-select [disabled]="disableSelect.value">
+                    <mat-option *ngFor="let t of tournamentParticipantList" [value]="t">{{t.userName}}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </mat-card>
             </div>
           </div>
         </div>
@@ -84,8 +147,20 @@
         <div class="matchups">
           <div class="matchup">
             <div class="participants">
-                <mat-card class='participant'></mat-card>
-                <mat-card class='participant'></mat-card>
+              <mat-card class='participant'id="3a">
+                <mat-form-field>
+                  <mat-select [disabled]="disableSelect.value">
+                    <mat-option *ngFor="let t of tournamentParticipantList" [value]="t">{{t.userName}}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </mat-card>
+              <mat-card class='participant'id="3b">
+                <mat-form-field>
+                  <mat-select [disabled]="disableSelect.value">
+                    <mat-option *ngFor="let t of tournamentParticipantList" [value]="t">{{t.userName}}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </mat-card>
             </div>
           </div>
         </div>
