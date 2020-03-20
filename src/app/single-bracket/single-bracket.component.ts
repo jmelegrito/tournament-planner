@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { TournamentService } from '../tournament.service'
+import {FormControl} from '@angular/forms';
 
 @Component({
   selector: 'app-single-bracket',
@@ -7,13 +8,20 @@ import { TournamentService } from '../tournament.service'
   styleUrls: ['./single-bracket.component.css']
 })
 export class SingleBracketComponent implements OnInit {
-  
-  tournamentMasterList = []
+
+  @Input() tournamentId: number;
+
+  disableSelect = new FormControl(false);
+
+  tournamentParticipantList = []
 
   constructor(private tournamentService: TournamentService) { }
 
   ngOnInit() {
-
+    this.tournamentService.getParticipants(1).subscribe( response => {
+      let list = Object.values(response);
+      list.map((data) => this.tournamentParticipantList.push(data))
+    });
   }
 
 }

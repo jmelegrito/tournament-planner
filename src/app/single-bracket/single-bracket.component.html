@@ -5,18 +5,23 @@
 
 <mat-card>
   <div class="bracket">
+    
     <section class="round quarterfinals">
       <div class="winners">
         <div class="matchups">
           <div class="matchup">
             <div class="participants">
               <mat-card class='participant'><mat-form-field>
-                  <mat-label>Select Team</mat-label>
-                  <!-- <mat-select [(value)]="teamList">
-                  <mat-option *ngFor="let t of teams" [value]="t">{{t.userName}}</mat-option>
-                    </mat-select> -->
+                  <mat-select>
+                  <mat-option *ngFor="let t of tournamentParticipantList" [value]="t">{{t.userName}}</mat-option>
+                    </mat-select>
                 </mat-form-field></mat-card>
-              <mat-card class='participant'></mat-card>
+              <mat-card class='participant'><mat-form-field>
+
+                  <mat-select>
+                  <mat-option *ngFor="let t of tournamentParticipantList" [value]="t">{{t.userName}}</mat-option>
+                    </mat-select>
+                </mat-form-field></mat-card>
             </div>
           </div>
           <div class="matchup">
