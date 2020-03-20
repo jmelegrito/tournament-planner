@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { TournamentService } from '../tournament.service'
 
 @Component({
@@ -15,6 +15,9 @@ export class CreateTournamentFormComponent implements OnInit {
     created: false
   };
   submitted = false;
+  organizerCheck = false;
+  
+  @Input() userType: Object;
 
   constructor(private tournamentService: TournamentService) { }
 
