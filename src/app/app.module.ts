@@ -18,6 +18,8 @@ import {DisplayComponent} from './display/display.component'
 import {MatCardModule} from '@angular/material/card';
 import { MatchupComponent } from './matchup/matchup.component';
 import {MatSelectModule} from '@angular/material/select';
+import { ShowOrganizedTourneyComponent } from './show-organized-tourney/show-organized-tourney.component';
+
 
 @NgModule({
   declarations: [
@@ -32,7 +34,8 @@ import {MatSelectModule} from '@angular/material/select';
     SingleBracketComponent,
     DisplayComponent,
     MatchupComponent,
-  
+    ShowOrganizedTourneyComponent
+
   ],
   imports: [
     BrowserModule,

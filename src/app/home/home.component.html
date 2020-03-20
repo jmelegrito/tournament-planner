@@ -1,7 +1,4 @@
-<app-create-tournament-form></app-create-tournament-form>
-<hr>
-<app-check-tournament-parent [tourneyList] = "tournamentMasterList"></app-check-tournament-parent>
-<hr>
-<app-display></app-display>
-<hr>
+<app-create-tournament-form [userId] = "idOfUser" [userType] = "kindOfUser"></app-create-tournament-form>
+<app-check-tournament-parent *ngIf="participantCheck" [tourneyList] = "tournamentMasterList"></app-check-tournament-parent>
+<app-show-organized-tourney *ngIf="!participantCheck"></app-show-organized-tourney>
 <app-single-bracket></app-single-bracket>

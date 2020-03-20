@@ -1,0 +1,9 @@
+<div *ngFor="let tourney of organizedList">
+    <div>
+        {{tourney.name}}
+        {{tourney.description}}
+        {{tourney.contact}}
+        {{tourney.type}}
+        <button (click)="viewTournament()" id={{tourney.id}}>View</button>
+    </div>
+</div>

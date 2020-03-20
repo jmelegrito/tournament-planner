@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { TournamentService } from '../tournament.service'
 
 @Component({
@@ -14,11 +14,17 @@ export class CreateTournamentFormComponent implements OnInit {
     type: '',
     created: false
   };
-  submitted = false;
+  organizerCheck = false;
+  
+  @Input() userType: Object;
+  @Input() userId: Object;
 
   constructor(private tournamentService: TournamentService) { }
 
   ngOnInit() {
+    if(this.userType === 'Organizer'){
+      this.organizerCheck = true
+    }
   }
 
   saveTournament() {
@@ -26,7 +32,8 @@ export class CreateTournamentFormComponent implements OnInit {
       name: this.tournament.name,
       description: this.tournament.description,
       contact: this.tournament.contact,
-      type: this.tournament.type
+      type: this.tournament.type,
+      organizer: this.userId
     }
 
     this.tournamentService.create(data)
@@ -34,11 +41,9 @@ export class CreateTournamentFormComponent implements OnInit {
           response => {
             console.log(response);
           });
-    this.submitted = true;
   }
 
   newTournament() {
-    this.submitted = false;
     this.tournament = {
       name: '',
       description: '',
