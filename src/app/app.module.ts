@@ -17,6 +17,7 @@ import {SingleBracketComponent} from './single-bracket/single-bracket.component'
 import {DisplayComponent} from './display/display.component'
 import {MatCardModule} from '@angular/material/card';
 import { MatchupComponent } from './matchup/matchup.component';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { MatchupComponent } from './matchup/matchup.component';
     CheckTournamentChildComponent,
     SingleBracketComponent,
     DisplayComponent,
-    MatchupComponent
+    MatchupComponent,
+  
   ],
   imports: [
     BrowserModule,
@@ -39,7 +41,8 @@ import { MatchupComponent } from './matchup/matchup.component';
     FormsModule,
     HttpClientModule,
     MatTableModule,
-    MatCardModule
+    MatCardModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

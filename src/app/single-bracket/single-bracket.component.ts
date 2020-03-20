@@ -11,6 +11,7 @@ export class SingleBracketComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    
   }
 
 }
