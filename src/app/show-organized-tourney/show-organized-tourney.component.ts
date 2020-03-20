@@ -9,6 +9,7 @@ import { TournamentService } from '../tournament.service';
 export class ShowOrganizedTourneyComponent implements OnInit {
 
   organizedList = []
+  grabbedTourneyId : number
 
   constructor(private tournamentService: TournamentService) { }
 
@@ -23,8 +24,8 @@ export class ShowOrganizedTourneyComponent implements OnInit {
     console.log(this.organizedList)
   }
 
-  viewTournament() {
-    console.log("Viewed!")    
+  viewTournament(id) {
+    this.grabbedTourneyId = id
   }
 
 }
