@@ -7,11 +7,13 @@ import { TournamentService } from '../tournament.service'
   styleUrls: ['./single-bracket.component.css']
 })
 export class SingleBracketComponent implements OnInit {
+  
+  tournamentMasterList = []
 
-  constructor() { }
+  constructor(private tournamentService: TournamentService) { }
 
   ngOnInit() {
-    
+
   }
 
 }

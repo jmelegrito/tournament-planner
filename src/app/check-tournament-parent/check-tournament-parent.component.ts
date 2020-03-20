@@ -24,10 +24,5 @@ export class CheckTournamentParentComponent implements OnInit {
         console.log(this.tournament)}
       
     )
-    
-    
   }
-  
-
-
 }
