@@ -10,6 +10,7 @@ export class HomeComponent implements OnInit {
 
   tournamentMasterList = []
   kindOfUser = {}
+  idOfUser = {}
   participantCheck = false
 
   constructor(private tournamentService: TournamentService) { }
@@ -22,6 +23,9 @@ export class HomeComponent implements OnInit {
     });
 
       this.kindOfUser = localStorage.getItem('user')
+      this.idOfUser = localStorage.getItem('id')
+
+      console.log(this.idOfUser)
 
       if(this.kindOfUser === 'participant'){
         this.participantCheck = true

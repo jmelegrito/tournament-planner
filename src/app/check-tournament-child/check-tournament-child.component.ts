@@ -16,8 +16,8 @@ export class CheckTournamentChildComponent implements OnInit {
     
   }
 
-  // joinTournament() {
-  //   this.tournamentService.update()
-  // }
+  joinTournament() {
+    console.log("Joined!")
+  }
 
 }

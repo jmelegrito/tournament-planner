@@ -67,7 +67,7 @@ passport.deserializeUser(function (id, cb) {
 const LocalStrategy = require('passport-local').Strategy;
 
 passport.use(new LocalStrategy(
-    {usernameField: "userName", passwordField: "password"},
+    { usernameField: "userName", passwordField: "password" },
     function (userName, password, done) {
         models.users.findOne({
             where: {
@@ -96,26 +96,27 @@ passport.use(new LocalStrategy(
 app.post('/sign-in',
     passport.authenticate('local'), function (req, res) {
         if (req.isAuthenticated()) {
-          console.log("The user is logged in.");
-          models.users.findOne({
-              where: {
-                  userName: req.body.userName
-              }
-          }).then( user => {
-              loggedInUser = {
-                userName: user.userName,
-                password: user.password,
-                userType: user.userType
-              }
-              res.send(loggedInUser);
-          })
-          
+            console.log("The user is logged in.");
+            models.users.findOne({
+                where: {
+                    userName: req.body.userName
+                }
+            }).then(user => {
+                loggedInUser = {
+                    userName: user.userName,
+                    password: user.password,
+                    userType: user.userType,
+                    userId: user.id
+                }
+                res.send(loggedInUser);
+            })
+
         } else {
-          console.log("no open session")
-          res.send("/login");
+            console.log("no open session")
+            res.send("/login");
         }
-      }
-    );
+    }
+);
 
 app.post("/sign-up", function (req, res) {
     console.log(req.body)
@@ -127,10 +128,12 @@ app.post("/sign-up", function (req, res) {
     })
         .then(function (user) {
             req.login(user, function () {
+                console.log(user.id)
                 data = {
                     username: req.body.userName,
                     password: encryptionPassword(req.body.password),
-                    userType: req.body.userType
+                    userType: req.body.userType,
+                    userId: user.id
                 }
                 res.send(data)
                 console.log("The user registered.")
@@ -138,94 +141,113 @@ app.post("/sign-up", function (req, res) {
         }).catch(err => {
             res.status(500).send({
                 message:
-                err.message || "Something bad is happening in Oz!"
+                    err.message || "Something bad is happening in Oz!"
             })
         });
 });
 
 app.get('/sign-out', function (req, res) {
     if (req.isAuthenticated()) {
-    //   console.log("The user is logging out.");
-      req.logOut();
-      res.send("/login");
+        //   console.log("The user is logging out.");
+        req.logOut();
+        res.send("/login");
     } else {
-    //   console.log("no open session")
-      res.send("/login");
+        //   console.log("no open session")
+        res.send("/login");
     }
-  });
+});
 
 /* TOURNAMENT SERVICE */
 
 // Grab all tournaments
-app.get('/', function (req, res){
-        models.tournaments.findAll({}).then(function(data){
-            res.send(data)
-        }).catch(err => {
-            res.status(500).send({
-                message:
+app.get('/', function (req, res) {
+    models.tournaments.findAll({}).then(function (data) {
+        res.send(data)
+    }).catch(err => {
+        res.status(500).send({
+            message:
                 err.message || "Something bad is happening in Oz!"
-            })
         })
+    })
 })
 
-// View selected tournament
-app.get('/:id', function (req, res){
-        models.tournaments.findOne({
-            where:{
-                id: req.params.id
-            }
-        }).then(function(data){
-            res.send(data)
-        }).catch(err => {
-            res.status(500).send({
-                message:
+//Grab all tournaments according to organizer
+app.get('/tourney/:id', function (req, res) {
+    models.tournaments.findAll({
+        where: {
+            organizer: req.params.id
+        }
+    }).then(function (data) {
+        res.send(data)
+    }).catch(err => {
+        res.status(500).send({
+            message:
                 err.message || "Something bad is happening in Oz!"
-            })
         })
+    })
+})
+
+
+// View selected tournament
+app.get('/:id', function (req, res) {
+    models.tournaments.findOne({
+        where: {
+            id: req.params.id
+        }
+    }).then(function (data) {
+        res.send(data)
+    }).catch(err => {
+        res.status(500).send({
+            message:
+                err.message || "Something bad is happening in Oz!"
+        })
+    })
 })
 
 // Create tournament
-app.post('/', function (req, res){
-        models.tournaments.create({
-            name: req.body.name,
-            description: req.body.description,
-            contact: req.body.contact,
-            type: req.body.type
-        }).then(function(data){
-            res.send(data)
-        }).catch(err => {
-            res.status(500).send({
-                message:
+app.post('/', function (req, res) {
+    models.tournaments.create({
+        name: req.body.name,
+        description: req.body.description,
+        contact: req.body.contact,
+        type: req.body.type,
+        organizer: req.body.organizer
+    }).then(function (data) {
+        res.send(data)
+    }).catch(err => {
+        res.status(500).send({
+            message:
                 err.message || "Something bad is happening in Oz!"
-            })
         })
+    })
 })
 
 //Update tournament
-app.put('/:id', function (req, res){
-        models.tournaments.update(
-            req.body,
-            { where: { id: req.params.id }}
-        ).then(function(data){
-            res.send(data)
-        }).catch(err => {
-            res.status(500).send({
-                message:
+app.put('/:id', function (req, res) {
+    models.tournaments.update(
+        req.body,
+        { where: { id: req.params.id } }
+    ).then(function (data) {
+        res.send(data)
+    }).catch(err => {
+        res.status(500).send({
+            message:
                 err.message || "Something bad is happening in Oz!"
-            })
         })
+    })
 })
 //Delete tournament
-app.delete('/:id', function (req, res){
-        models.tournaments.destroy({ 
-            where: { id: req.params.id 
-            }
-        }).then(function(data){
-            res.send(data)
-        }).catch(err => {
-            res.status(500).send({
-                message:
+app.delete('/:id', function (req, res) {
+    models.tournaments.destroy({
+        where: {
+            id: req.params.id
+        }
+    }).then(function (data) {
+        res.send(data)
+    }).catch(err => {
+        res.status(500).send({
+            message:
                 err.message || "Something bad is happening in Oz!"
-            })
         })
+    })
 })

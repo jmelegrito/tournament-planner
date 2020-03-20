@@ -19,8 +19,11 @@ export class AuthService {
 
   public setUserInfo(user){
     localStorage.setItem('userInfo', JSON.stringify(user));
+    console.log(user)
     let userType = user.userType
+    let userId = user.userId
     localStorage.setItem('user', userType)
+    localStorage.setItem('id',userId)
   }
 
   public deleteUserInfo(){
