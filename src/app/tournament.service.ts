@@ -18,6 +18,11 @@ export class TournamentService {
     return this.http.get(`${baseUrl}/${id}`);
   }
 
+  getTourney(id) {
+    return this.http.get(`${baseUrl}/tourney/${id}`);
+  }
+
+
   create(data) {
     return this.http.post(baseUrl, data);
   }

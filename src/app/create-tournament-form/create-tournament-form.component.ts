@@ -17,6 +17,7 @@ export class CreateTournamentFormComponent implements OnInit {
   organizerCheck = false;
   
   @Input() userType: Object;
+  @Input() userId: Object;
 
   constructor(private tournamentService: TournamentService) { }
 
@@ -31,7 +32,8 @@ export class CreateTournamentFormComponent implements OnInit {
       name: this.tournament.name,
       description: this.tournament.description,
       contact: this.tournament.contact,
-      type: this.tournament.type
+      type: this.tournament.type,
+      organizer: this.userId
     }
 
     this.tournamentService.create(data)
