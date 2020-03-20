@@ -17,7 +17,9 @@ import {SingleBracketComponent} from './single-bracket/single-bracket.component'
 import {DisplayComponent} from './display/display.component'
 import {MatCardModule} from '@angular/material/card';
 import { MatchupComponent } from './matchup/matchup.component';
+import {MatSelectModule} from '@angular/material/select';
 import { ShowOrganizedTourneyComponent } from './show-organized-tourney/show-organized-tourney.component';
+
 
 @NgModule({
   declarations: [
@@ -33,6 +35,7 @@ import { ShowOrganizedTourneyComponent } from './show-organized-tourney/show-org
     DisplayComponent,
     MatchupComponent,
     ShowOrganizedTourneyComponent
+
   ],
   imports: [
     BrowserModule,
@@ -41,7 +44,8 @@ import { ShowOrganizedTourneyComponent } from './show-organized-tourney/show-org
     FormsModule,
     HttpClientModule,
     MatTableModule,
-    MatCardModule
+    MatCardModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

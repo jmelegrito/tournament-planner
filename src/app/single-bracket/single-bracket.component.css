@@ -35,8 +35,8 @@ body {
 .bracket .round .winners > div.matchups .matchup .participants .participant {
   box-sizing: border-box;
   color: #858585;
-  border-left: 0.25rem solid #858585;
-  background: white;
+  border-left: 0.25rem solid #ffffff;
+  background: rgb(128, 128, 128);
   width: 14rem;
   height: 3rem;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.12);

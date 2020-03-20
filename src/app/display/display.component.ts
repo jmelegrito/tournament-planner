@@ -12,6 +12,7 @@ export interface userDisplay {
   tournamentJoined: string;
 }
 
+
 const ELEMENT_DATA: userDisplay[] = [
   {userName: 'test', userType: 'single-elimination', tournamentHosted: 'tourney 1', tournamentJoined: 'tourney a'},
   {userName: 'test2', userType: 'single-elimination', tournamentHosted: 'tourney 2', tournamentJoined: 'tourney b'},  
@@ -26,6 +27,7 @@ const ELEMENT_DATA: userDisplay[] = [
   styleUrls: ['./display.component.css']
 })
 export class DisplayComponent implements OnInit {
+ 
 
   displayedColumns: string[] = ['userName', 'userType', 'tournamentHosted', 'tournamentJoined'];
   dataSource = ELEMENT_DATA

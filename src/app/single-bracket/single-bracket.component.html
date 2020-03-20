@@ -3,83 +3,88 @@
 <app-matchup></app-matchup>
 <hr>
 
-  <mat-card>
-    <div class="bracket">
-      <section class="round quarterfinals">
-        <div class="winners">
-          <div class="matchups">
-            <div class="matchup">
-              <div class="participants">
-                <div class="participant"><span></span></div>
-                <div class="participant"><span></span></div>
-              </div>
-            </div>
-            <div class="matchup">
-              <div class="participants">
-                <div class="participant"><span></span></div>
-                <div class="participant"><span></span></div>
-              </div>
+<mat-card>
+  <div class="bracket">
+    <section class="round quarterfinals">
+      <div class="winners">
+        <div class="matchups">
+          <div class="matchup">
+            <div class="participants">
+              <mat-card class='participant'><mat-form-field>
+                  <mat-label>Select Team</mat-label>
+                  <!-- <mat-select [(value)]="teamList">
+                  <mat-option *ngFor="let t of teams" [value]="t">{{t.userName}}</mat-option>
+                    </mat-select> -->
+                </mat-form-field></mat-card>
+              <mat-card class='participant'></mat-card>
             </div>
           </div>
-          <div class="connector">
-            <div class="merger"></div>
-            <div class="line"></div>
-          </div>
-        </div>
-        <div class="winners">
-          <div class="matchups">
-            <div class="matchup">
-              <div class="participants">
-                <div class="participant"><span></span></div>
-                <div class="participant"><span></span></div>
-              </div>
-            </div>
-            <div class="matchup">
-              <div class="participants">
-                <div class="participant"><span></span></div>
-                <div class="participant"><span></span></div>
-              </div>
-            </div>
-          </div>
-          <div class="connector">
-            <div class="merger"></div>
-            <div class="line"></div>
-          </div>
-        </div>
-      </section>
-      <section class="round semifinals">
-        <div class="winners">
-          <div class="matchups">
-            <div class="matchup">
-              <div class="participants">
-                <div class="participant"><span></span></div>
-                <div class="participant"><span></span></div>
-              </div>
-            </div>
-            <div class="matchup">
-              <div class="participants">
-                <div class="participant"><span></span></div>
-                <div class="participant"><span></span></div>
-              </div>
-            </div>
-          </div>
-          <div class="connector">
-            <div class="merger"></div>
-            <div class="line"></div>
-          </div>
-        </div>
-      </section>
-      <section class="round finals">
-        <div class="winners">
-          <div class="matchups">
-            <div class="matchup">
-              <div class="participants">
-                <div class="participant"><span></span></div>
-                <div class="participant"><span></span></div>
-              </div>
+          <div class="matchup">
+            <div class="participants">
+                <mat-card class='participant'></mat-card>
+                <mat-card class='participant'></mat-card>
             </div>
           </div>
         </div>
-      </section>
-    </div>
-  </mat-card>
+        <div class="connector">
+          <div class="merger"></div>
+          <div class="line"></div>
+        </div>
+      </div>
+      <div class="winners">
+        <div class="matchups">
+          <div class="matchup">
+            <div class="participants">
+                <mat-card class='participant'></mat-card>
+                <mat-card class='participant'></mat-card>
+            </div>
+          </div>
+          <div class="matchup">
+            <div class="participants">
+                <mat-card class='participant'></mat-card>
+                <mat-card class='participant'></mat-card>
+            </div>
+          </div>
+        </div>
+        <div class="connector">
+          <div class="merger"></div>
+          <div class="line"></div>
+        </div>
+      </div>
+    </section>
+    <section class="round semifinals">
+      <div class="winners">
+        <div class="matchups">
+          <div class="matchup">
+            <div class="participants">
+                <mat-card class='participant'></mat-card>
+                <mat-card class='participant'></mat-card>
+            </div>
+          </div>
+          <div class="matchup">
+            <div class="participants">
+                <mat-card class='participant'></mat-card>
+                <mat-card class='participant'></mat-card>
+            </div>
+          </div>
+        </div>
+        <div class="connector">
+          <div class="merger"></div>
+          <div class="line"></div>
+        </div>
+      </div>
+    </section>
+    <section class="round finals">
+      <div class="winners">
+        <div class="matchups">
+          <div class="matchup">
+            <div class="participants">
+                <mat-card class='participant'></mat-card>
+                <mat-card class='participant'></mat-card>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</mat-card>
