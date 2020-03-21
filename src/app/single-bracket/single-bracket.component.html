@@ -11,16 +11,16 @@
         <div class="matchups">
           <div class="matchup">
             <div class="participants">
-              <mat-card class='participant' id="1a">
+              <mat-card class='participant' >
                 <mat-form-field>
-                  <mat-select [disabled]="disableSelect.value" [(ngModel)]="bracketPos" (ngModelChange)="onBracketPos()">
+                  <mat-select id="1a" [disabled]="disableSelect.value" [(ngModel)]="bracketPos['1a']" (ngModelChange)="onBracketPos($event,'1a')">
                     <mat-option *ngFor="let t of tournamentParticipantList" [value]="t.id">{{t.userName}}</mat-option>
                   </mat-select>
                 </mat-form-field>
               </mat-card>
-              <mat-card class='participant'id="1b">
+              <mat-card class='participant'>
                 <mat-form-field>
-                  <mat-select [disabled]="disableSelect.value">
+                  <mat-select id="1b" [disabled]="disableSelect.value" [(ngModel)]="bracketPos['1b']" (ngModelChange)="onBracketPos($event,'1b')">
                     <mat-option *ngFor="let t of tournamentParticipantList" [value]="t.id">{{t.userName}}</mat-option>
                   </mat-select>
                 </mat-form-field>
@@ -29,17 +29,17 @@
           </div>
           <div class="matchup">
             <div class="participants">
-              <mat-card class='participant'id="1c">
+              <mat-card class='participant' >
                 <mat-form-field>
-                  <mat-select [disabled]="disableSelect.value">
-                    <mat-option *ngFor="let t of tournamentParticipantList" [value]="t">{{t.userName}}</mat-option>
+                  <mat-select id="1c" [disabled]="disableSelect.value" [(ngModel)]="bracketPos['1c']" (ngModelChange)="onBracketPos($event,'1c')">
+                    <mat-option *ngFor="let t of tournamentParticipantList" [value]="t.id">{{t.userName}}</mat-option>
                   </mat-select>
                 </mat-form-field>
               </mat-card>
-              <mat-card class='participant'id="1d">
+              <mat-card class='participant' >
                 <mat-form-field>
-                  <mat-select [disabled]="disableSelect.value">
-                    <mat-option *ngFor="let t of tournamentParticipantList" [value]="t">{{t.userName}}</mat-option>
+                  <mat-select id="1d" [disabled]="disableSelect.value" [(ngModel)]="bracketPos['1d']" (ngModelChange)="onBracketPos($event,'1d')">
+                    <mat-option *ngFor="let t of tournamentParticipantList" [value]="t.id">{{t.userName}}</mat-option>
                   </mat-select>
                 </mat-form-field>
               </mat-card>
@@ -55,17 +55,17 @@
         <div class="matchups">
           <div class="matchup">
             <div class="participants">
-              <mat-card class='participant'id="1e">
+              <mat-card class='participant' >
                 <mat-form-field>
-                  <mat-select [disabled]="disableSelect.value">
-                    <mat-option *ngFor="let t of tournamentParticipantList" [value]="t">{{t.userName}}</mat-option>
+                  <mat-select id="1e" [disabled]="disableSelect.value" [(ngModel)]="bracketPos['1e']" (ngModelChange)="onBracketPos($event,'1e')">
+                    <mat-option *ngFor="let t of tournamentParticipantList" [value]="t.id">{{t.userName}}</mat-option>
                   </mat-select>
                 </mat-form-field>
               </mat-card>
-              <mat-card class='participant'id="1f">
+              <mat-card class='participant' >
                 <mat-form-field>
-                  <mat-select [disabled]="disableSelect.value">
-                    <mat-option *ngFor="let t of tournamentParticipantList" [value]="t">{{t.userName}}</mat-option>
+                  <mat-select id="1f" [disabled]="disableSelect.value" [(ngModel)]="bracketPos['1f']" (ngModelChange)="onBracketPos($event,'1f')">
+                    <mat-option *ngFor="let t of tournamentParticipantList" [value]="t.id">{{t.userName}}</mat-option>
                   </mat-select>
                 </mat-form-field>
               </mat-card>
@@ -73,17 +73,17 @@
           </div>
           <div class="matchup">
             <div class="participants">
-              <mat-card class='participant'id="1g">
+              <mat-card class='participant' >
                 <mat-form-field>
-                  <mat-select [disabled]="disableSelect.value">
-                    <mat-option *ngFor="let t of tournamentParticipantList" [value]="t">{{t.userName}}</mat-option>
+                  <mat-select id="1g" [disabled]="disableSelect.value" [(ngModel)]="bracketPos['1g']" (ngModelChange)="onBracketPos($event,'1g')">
+                    <mat-option *ngFor="let t of tournamentParticipantList" [value]="t.id">{{t.userName}}</mat-option>
                   </mat-select>
                 </mat-form-field>
               </mat-card>
-              <mat-card class='participant'id="1h">
+              <mat-card class='participant' >
                 <mat-form-field>
-                  <mat-select [disabled]="disableSelect.value">
-                    <mat-option *ngFor="let t of tournamentParticipantList" [value]="t">{{t.userName}}</mat-option>
+                  <mat-select id="1h" [disabled]="disableSelect.value" [(ngModel)]="bracketPos['1h']" (ngModelChange)="onBracketPos($event,'1h')">
+                    <mat-option *ngFor="let t of tournamentParticipantList" [value]="t.id">{{t.userName}}</mat-option>
                   </mat-select>
                 </mat-form-field>
               </mat-card>
@@ -101,17 +101,17 @@
         <div class="matchups">
           <div class="matchup">
             <div class="participants">
-              <mat-card class='participant'id="2a">
+              <mat-card class='participant' >
                 <mat-form-field>
-                  <mat-select [disabled]="disableSelect.value">
-                    <mat-option *ngFor="let t of tournamentParticipantList" [value]="t">{{t.userName}}</mat-option>
+                  <mat-select id="2a" [disabled]="disableSelect.value" [(ngModel)]="bracketPos['2a']" (ngModelChange)="onBracketPos($event,'2a')">
+                    <mat-option *ngFor="let t of tournamentParticipantList" [value]="t.id">{{t.userName}}</mat-option>
                   </mat-select>
                 </mat-form-field>
               </mat-card>
-              <mat-card class='participant'id="2b">
+              <mat-card class='participant' >
                 <mat-form-field>
-                  <mat-select [disabled]="disableSelect.value">
-                    <mat-option *ngFor="let t of tournamentParticipantList" [value]="t">{{t.userName}}</mat-option>
+                  <mat-select id="2b" [disabled]="disableSelect.value" [(ngModel)]="bracketPos['2b']" (ngModelChange)="onBracketPos($event,'2b')">
+                    <mat-option *ngFor="let t of tournamentParticipantList" [value]="t.id">{{t.userName}}</mat-option>
                   </mat-select>
                 </mat-form-field>
               </mat-card>
@@ -119,17 +119,17 @@
           </div>
           <div class="matchup">
             <div class="participants">
-              <mat-card class='participant'id="2c">
+              <mat-card class='participant' >
                 <mat-form-field>
-                  <mat-select [disabled]="disableSelect.value">
-                    <mat-option *ngFor="let t of tournamentParticipantList" [value]="t">{{t.userName}}</mat-option>
+                  <mat-select id="2c" [disabled]="disableSelect.value" [(ngModel)]="bracketPos['2c']" (ngModelChange)="onBracketPos($event,'2c')">
+                    <mat-option *ngFor="let t of tournamentParticipantList" [value]="t.id">{{t.userName}}</mat-option>
                   </mat-select>
                 </mat-form-field>
               </mat-card>
-              <mat-card class='participant'id="2d">
+              <mat-card class='participant' >
                 <mat-form-field>
-                  <mat-select [disabled]="disableSelect.value">
-                    <mat-option *ngFor="let t of tournamentParticipantList" [value]="t">{{t.userName}}</mat-option>
+                  <mat-select id="2d" [disabled]="disableSelect.value" [(ngModel)]="bracketPos['2d']" (ngModelChange)="onBracketPos($event,'2d')">
+                    <mat-option *ngFor="let t of tournamentParticipantList" [value]="t.id">{{t.userName}}</mat-option>
                   </mat-select>
                 </mat-form-field>
               </mat-card>
@@ -147,17 +147,17 @@
         <div class="matchups">
           <div class="matchup">
             <div class="participants">
-              <mat-card class='participant'id="3a">
+              <mat-card class='participant' >
                 <mat-form-field>
-                  <mat-select [disabled]="disableSelect.value">
-                    <mat-option *ngFor="let t of tournamentParticipantList" [value]="t">{{t.userName}}</mat-option>
+                  <mat-select id="3a" [disabled]="disableSelect.value" [(ngModel)]="bracketPos['3a']" (ngModelChange)="onBracketPos($event,'3a')">
+                    <mat-option *ngFor="let t of tournamentParticipantList" [value]="t.id">{{t.userName}}</mat-option>
                   </mat-select>
                 </mat-form-field>
               </mat-card>
-              <mat-card class='participant'id="3b">
+              <mat-card class='participant' >
                 <mat-form-field>
-                  <mat-select [disabled]="disableSelect.value">
-                    <mat-option *ngFor="let t of tournamentParticipantList" [value]="t">{{t.userName}}</mat-option>
+                  <mat-select id="3b" [disabled]="disableSelect.value" [(ngModel)]="bracketPos['3b']" (ngModelChange)="onBracketPos($event,'3b')">
+                    <mat-option *ngFor="let t of tournamentParticipantList" [value]="t.id">{{t.userName}}</mat-option>
                   </mat-select>
                 </mat-form-field>
               </mat-card>
