@@ -23,6 +23,9 @@ import { MatToolbarModule } from '@angular/material/toolbar'
 import { MatchupComponent } from './matchup/matchup.component';
 import {MatSelectModule} from '@angular/material/select';
 import { ShowOrganizedTourneyComponent } from './show-organized-tourney/show-organized-tourney.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -54,6 +57,8 @@ import { ShowOrganizedTourneyComponent } from './show-organized-tourney/show-org
     MatInputModule,
     MatButtonModule,
     MatToolbarModule
+    MatCheckboxModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
