@@ -19,8 +19,7 @@ import { MatCardModule} from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
-import { MatToolbarModule } from '@angular/material/toolbar'
-import { MatchupComponent } from './matchup/matchup.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import {MatSelectModule} from '@angular/material/select';
 import { ShowOrganizedTourneyComponent } from './show-organized-tourney/show-organized-tourney.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
@@ -39,7 +38,6 @@ import {ReactiveFormsModule } from '@angular/forms';
     CheckTournamentChildComponent,
     SingleBracketComponent,
     DisplayComponent,
-    MatchupComponent,
     ShowOrganizedTourneyComponent
 
   ],

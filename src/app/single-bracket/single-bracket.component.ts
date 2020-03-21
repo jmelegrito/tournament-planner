@@ -12,6 +12,8 @@ export class SingleBracketComponent implements OnInit {
   @Input() tournamentId: number;
 
   bracketPos: Array<any> = [];
+  
+  bracketPos1: object
 
   disableSelect = new FormControl(false);
 
@@ -20,8 +22,6 @@ export class SingleBracketComponent implements OnInit {
   constructor(private tournamentService: TournamentService) { }
 
   organizerCheck= false
-
-
 
   onBracketPos(object,data) {
     console.log(data);
@@ -50,6 +50,11 @@ export class SingleBracketComponent implements OnInit {
     this.tournamentService.getParticipants(1).subscribe( response => {
       let list = Object.values(response);
       list.map((data) => this.tournamentParticipantList.push(data))
+      this.bracketPos1 = this.tournamentParticipantList.find((e) => { 
+        console.log(e);
+        return e.bracket === '1a'
+      })
+       console.log(this.bracketPos1)
     });
   }
 
