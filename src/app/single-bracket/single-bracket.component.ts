@@ -11,7 +11,7 @@ export class SingleBracketComponent implements OnInit {
 
   @Input() tournamentId: number;
 
-  bracketPos: string;
+  bracketPos: Array<any> = [];
 
   disableSelect = new FormControl(false);
 
@@ -23,8 +23,21 @@ export class SingleBracketComponent implements OnInit {
 
 
 
-  onBracketPos() {
-    console.log(this.bracketPos);
+  onBracketPos(object,data) {
+    console.log(data);
+    console.log(object)
+    console.log(this.bracketPos[data])
+
+    const info = {
+      bracket : data
+    }
+   
+    this.tournamentService.join(this.bracketPos[data], info).subscribe(
+      response => {
+        console.log(response)
+      }
+    )
+
   }
 
   ngOnInit() {
