@@ -1,10 +1,16 @@
-<div *ngFor="let tour of tourneyList">
-    <div>
-        {{tour.name}}
-        {{tour.description}}
-        {{tour.contact}}
-        {{tour.type}}
-        <button (click)="queryServer(tour.id)" id={{tour.id}}>View</button>
+<div class="wrap">
+<div class="cardList">
+    <div *ngFor="let tour of tourneyList">
+        <mat-card class="tourneyCard">
+            <mat-card-header>
+                <mat-card-title>{{tour.name}}</mat-card-title>
+                <mat-card-subtitle>{{tour.type}}</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-actions>
+                <button mat-button (click)="queryServer(tour.id)" id={{tour.id}}>VIEW</button>
+            </mat-card-actions>
+        </mat-card>
     </div>
 </div>
 <app-check-tournament-child *ngIf="toggler" [selectedTournament]="tournament"></app-check-tournament-child>
+</div>

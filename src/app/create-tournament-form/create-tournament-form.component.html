@@ -1,8 +1,7 @@
-<div class="submit-form">
-    <div *ngIf="organizerCheck">
-      <div class="form-group">
-        <label for="name">Tournament Name</label>
-        <input
+    <div class="createTourney" *ngIf="organizerCheck">
+      <mat-form-field appearance="outline" class="form-group">
+        <mat-label for="name">Tournament Name</mat-label>
+        <input matInput
           type="text"
           class="form-control"
           id="name"
@@ -10,22 +9,22 @@
           [(ngModel)]="tournament.name"
           name="name"
         />
-      </div>
+      </mat-form-field>
   
-      <div class="form-group">
-        <label for="description">Description</label>
-        <input
+      <mat-form-field appearance="outline" class="form-group">
+        <mat-label for="description">Description</mat-label>
+        <input matInput
           class="form-control"
           id="description"
           required
           [(ngModel)]="tournament.description"
           name="description"
         />
-      </div>
+      </mat-form-field>
 
-      <div class="form-group">
-        <label for="contact">Contact Email</label>
-        <input
+      <mat-form-field appearance="outline" class="form-group">
+        <mat-label for="contact">Contact Email</mat-label>
+        <input matInput
           class="form-control"
           id="contact"
           required
@@ -33,22 +32,21 @@
           name="contact"
           type="email"
         />
-      </div>
-      <div class="form-group">
-          <label for="type">Tournament Type</label>
-          <select
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="form-group">
+          <mat-label for="type">Tournament Type</mat-label>
+          <mat-select
             class="form-control"
             id="type"
             required
             [(ngModel)]="tournament.type"
             name="type">
-                <option disabled>Select a Tournament Type</option>
-                <option value="single-elimination">Single Elimination</option>
-                <option value="double-elimination">Double Elimination</option>
-                <option value="round-robin">Round Robin</option>
-        </select>
-      </div>
-  
-      <button (click)="saveTournament()" class="btn btn-success">Submit</button>
+                <mat-option disabled>Select a Tournament Type</mat-option>
+                <mat-option value="single-elimination">Single Elimination</mat-option>
+                <mat-option value="double-elimination">Double Elimination</mat-option>
+                <mat-option value="round-robin">Round Robin</mat-option>
+        </mat-select>
+      </mat-form-field>
+        
+      <button mat-raised-button color="primary" (click)="saveTournament()" class="btn btn-success">Submit</button>
     </div>
-  </div>
