@@ -13,15 +13,15 @@
             <div class="participants">
               <mat-card class='participant' id="1a">
                 <mat-form-field>
-                  <mat-select [disabled]="disableSelect.value">
-                    <mat-option *ngFor="let t of tournamentParticipantList" [value]="t">{{t.userName}}</mat-option>
+                  <mat-select [disabled]="disableSelect.value" [(ngModel)]="bracketPos" (ngModelChange)="onBracketPos()">
+                    <mat-option *ngFor="let t of tournamentParticipantList" [value]="t.id">{{t.userName}}</mat-option>
                   </mat-select>
                 </mat-form-field>
               </mat-card>
               <mat-card class='participant'id="1b">
                 <mat-form-field>
                   <mat-select [disabled]="disableSelect.value">
-                    <mat-option *ngFor="let t of tournamentParticipantList" [value]="t">{{t.userName}}</mat-option>
+                    <mat-option *ngFor="let t of tournamentParticipantList" [value]="t.id">{{t.userName}}</mat-option>
                   </mat-select>
                 </mat-form-field>
               </mat-card>
