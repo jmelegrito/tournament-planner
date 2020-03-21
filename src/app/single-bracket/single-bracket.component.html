@@ -1,6 +1,5 @@
 <p>Single Elimination</p>
 
-<app-matchup></app-matchup>
 <hr>
 
 <mat-card>    
@@ -14,6 +13,7 @@
               <mat-card class='participant' >
                 <mat-form-field>
                   <mat-select id="1a" [disabled]="disableSelect.value" [(ngModel)]="bracketPos['1a']" (ngModelChange)="onBracketPos($event,'1a')">
+                    <mat-placeholder></mat-placeholder>
                     <mat-option *ngFor="let t of tournamentParticipantList" [value]="t.id">{{t.userName}}</mat-option>
                   </mat-select>
                 </mat-form-field>
