@@ -1,28 +1,13 @@
-<h1>SIGNIN</h1>
-<div class="submit-form">
-    <div>
-      <div class="form-group">
-        <label for="userName">Username</label>
-        <input
-          type="text"
-          class="form-control"
-          id="signInUserName"
-          required
-          [(ngModel)]="signInUser.userName"
-          name="userName"
-        />
-      </div>
-      <div class="form-group">
-        <label for="password">Password</label>
-        <input
-          class="form-control"
-          id="signInPassword"
-          required
-          [(ngModel)]="signInUser.password"
-          name="password"
-        />
-      </div>
-  
-      <button (click)="signInUserFunction()" class="btn btn-success">Submit</button>
-    </div>
-  </div>
+<div class="signInForm">
+
+  <mat-form-field appearance="outline">
+    <mat-label>Username</mat-label>
+    <input matInput id="signInUserName" required [(ngModel)]="signInUser.userName" name="userName" />
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label for="password">Password</mat-label>
+    <input matInput required [(ngModel)]="signInUser.password" name="password" />
+  </mat-form-field>
+
+</div>
+<button mat-raised-button color="primary" (click)="signInUserFunction()" class="btn btn-success">Submit</button>

@@ -1,0 +1,32 @@
+.cardList {
+    display: grid;
+    grid-template-columns: 1fr ;
+
+}
+
+.header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+}
+
+.tourneyCard {
+    margin: 10px;
+    padding: 10px;
+}
+.wrap{
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+}
+
+
+@media only screen and (min-width: 1024px) {  
+    .cardList {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    
+    }
+    .wrap{
+        display: grid;
+        grid-template-columns: 1fr 5fr;
+    }
+}

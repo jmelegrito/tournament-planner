@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { TournamentService } from './tournament.service'
 import { Router } from '@angular/router'
-import { Subscriber } from 'rxjs';
 import { AuthService } from './auth.service'
 
 @Component({
@@ -18,7 +17,7 @@ export class AppComponent {
     .subscribe(
       () => {
         this.authService.deleteUserInfo()
-        this.router.navigate(['login'])
+        this.router.navigate([''])
       });
   }
 

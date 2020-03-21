@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ChangeDetectorRef } from '@angular/core';
 import { TournamentService } from '../tournament.service';
 
 @Component({
@@ -9,12 +9,12 @@ import { TournamentService } from '../tournament.service';
 export class CheckTournamentChildComponent implements OnInit {
 
   @Input() selectedTournament: Array<object>;
-  @Input() toggleFlag: boolean;
 
   participant : number
+  toggler = true
   
 
-  constructor(private tournamentService : TournamentService) { }
+  constructor(private tournamentService : TournamentService, private changeDetector: ChangeDetectorRef) { }
 
   ngOnInit() {
   }
@@ -31,6 +31,9 @@ export class CheckTournamentChildComponent implements OnInit {
     this.tournamentService.join(this.participant, info).subscribe(
       response => {
         console.log(response)
+        this.toggler=false
+      this.changeDetector.detectChanges();
+      this.toggler=true
       }
     )
 

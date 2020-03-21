@@ -1,3 +1,9 @@
-<app-create-tournament-form [userId] = "idOfUser" [userType] = "kindOfUser"></app-create-tournament-form>
-<app-check-tournament-parent *ngIf="participantCheck" [tourneyList] = "tournamentMasterList"></app-check-tournament-parent>
-<app-show-organized-tourney *ngIf="!participantCheck"></app-show-organized-tourney>
+<div class="tourneyHome">
+
+<app-create-tournament-form class="section" *ngIf="!participantCheck" [userId] = "idOfUser" [userType] = "kindOfUser"></app-create-tournament-form>
+
+<div>
+<app-check-tournament-parent class="section" *ngIf="participantCheck" [tourneyList] = "tournamentMasterList"></app-check-tournament-parent>
+<app-show-organized-tourney class="section" *ngIf="!participantCheck"></app-show-organized-tourney>
+</div>
+</div>

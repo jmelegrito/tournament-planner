@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, ChangeDetectorRef } from '@angular/core';
 import { TournamentService } from '../tournament.service'
+import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-check-tournament-parent',

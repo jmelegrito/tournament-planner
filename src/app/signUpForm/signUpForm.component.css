@@ -1,0 +1,5 @@
+* {font-family: 'Rubik', "Helvetica Neue", sans-serif; }
+.signUpForm {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}

@@ -10,6 +10,7 @@ import { Router } from '@angular/router'
 export class DisplayComponent implements OnInit {
  
    thisTournamentList = []
+   @Input() toggleFlag: boolean;
 
   constructor(private tournamentService: TournamentService, private router: Router, ) {}
   

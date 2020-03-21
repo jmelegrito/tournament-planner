@@ -1,0 +1,10 @@
+.sign {
+    padding: 1rem 2rem;
+}
+@media only screen and (min-width: 1024px) {  
+.loginPage{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+}
