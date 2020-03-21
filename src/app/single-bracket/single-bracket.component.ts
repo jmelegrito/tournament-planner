@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ElementRef} from '@angular/core';
 import { TournamentService } from '../tournament.service'
 import {FormControl} from '@angular/forms';
 
@@ -11,6 +11,8 @@ export class SingleBracketComponent implements OnInit {
 
   @Input() tournamentId: number;
 
+  bracketPos: string;
+
   disableSelect = new FormControl(false);
 
   tournamentParticipantList = []
@@ -18,6 +20,12 @@ export class SingleBracketComponent implements OnInit {
   constructor(private tournamentService: TournamentService) { }
 
   organizerCheck= false
+
+
+
+  onBracketPos() {
+    console.log(this.bracketPos);
+  }
 
   ngOnInit() {
     let user = localStorage.getItem('user')
