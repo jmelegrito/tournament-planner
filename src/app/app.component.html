@@ -13,7 +13,7 @@
 <mat-toolbar class="toolbar" color="primary">
   <span>Tournament Planner</span>
     <div class="spacer"></div>
-    <button mat-raised-button color="basic" *ngIf="this.authService.isAuthenticated()" class="btn btn-success" (click)="signOutUserFunction()">Sign Out</button>
+    <button mat-raised-button color="basic" *ngIf="this.authService.isAuthenticated()" (click)="signOutUserFunction()">Sign Out</button>
 </mat-toolbar>
 <router-outlet></router-outlet>
 <router-outlet></router-outlet>

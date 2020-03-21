@@ -21,11 +21,12 @@ export class ShowOrganizedTourneyComponent implements OnInit {
       let list = Object.values(response);
       list.map((data) => this.organizedList.push(data))
     });
-    console.log(this.organizedList)
+    
   }
 
   viewTournament(id) {
     this.grabbedTourneyId = id
+    console.log(this.organizedList)
   }
 
 }

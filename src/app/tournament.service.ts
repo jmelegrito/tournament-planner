@@ -6,6 +6,7 @@ const baseUrl = 'http://localhost:3000';
 @Injectable({
   providedIn: 'root'
 })
+
 export class TournamentService {
 
   constructor(private http: HttpClient) { }
@@ -30,7 +31,7 @@ export class TournamentService {
     return this.http.post(baseUrl, data);
   }
 
-  join(id, data) {
+  join(id : number, data) {
     return this.http.put(`${baseUrl}/join/${id}`, data)
   }
 

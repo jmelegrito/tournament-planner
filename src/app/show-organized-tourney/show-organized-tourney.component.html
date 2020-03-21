@@ -1,10 +1,26 @@
+<div class="cardList">
 <div *ngFor="let tourney of organizedList">
-    <div>
-        {{tourney.name}}
-        {{tourney.description}}
-        {{tourney.contact}}
-        {{tourney.type}}
-        <button (click)="viewTournament(tourney.id)">View</button>
+
+    <mat-card class="tourneyCard">
+        <mat-card-header>
+            <mat-card-title>{{tourney.name}}</mat-card-title>
+            <mat-card-subtitle>{{tourney.type}}</mat-card-subtitle>
+        </mat-card-header>
+        <div class="horizontalCard">
+            <div>
+            <h3>Description</h3>
+            <p>{{tourney.description}}</p>
+        </div>
+            <mat-divider [vertical]="true"></mat-divider>
+            <div>
+            <h3>Email</h3>
+            <p>{{tourney.contact}}</p>
+        </div>
+        </div>
+        <mat-card-actions>
+            <button mat-raised-button color="primary" (click)="viewTournament(tourney.id)">VIEW</button>
+        </mat-card-actions>
+    </mat-card>
     </div>
 </div>
 <app-single-bracket [tournamentId] = 'grabbedTourneyId'></app-single-bracket>
