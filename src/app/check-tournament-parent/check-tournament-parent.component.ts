@@ -11,7 +11,7 @@ export class CheckTournamentParentComponent implements OnInit {
 
   tournament: object
   tournamentParticipants = []
-  toggler = false
+  toggler = true
 
   @Input() tourneyList: Array<object>;
 

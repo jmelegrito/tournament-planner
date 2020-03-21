@@ -1,8 +1,20 @@
 .cardShow {
     display: grid;
     grid-template-columns: 4fr 1fr;
+    margin-left: 50px;
 }
 .tourneyCard {
-    width: 100%;
+    width: 200%;
     padding: 10px;
 }
+
+
+.horizontalCard {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.header-image {
+    background-color: #000000;
+    background-size: cover;
+  }

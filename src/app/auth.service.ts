@@ -28,6 +28,9 @@ export class AuthService {
 
   public deleteUserInfo(){
     localStorage.removeItem('userInfo')
+    localStorage.removeItem('user')
+    localStorage.removeItem('tourneyChosen')
+    localStorage.removeItem('id')
   }
 
   public validate(email, password) {

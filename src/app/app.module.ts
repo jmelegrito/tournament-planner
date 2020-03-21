@@ -24,6 +24,7 @@ import {MatSelectModule} from '@angular/material/select';
 import { ShowOrganizedTourneyComponent } from './show-organized-tourney/show-organized-tourney.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {ReactiveFormsModule } from '@angular/forms';
+import { MatDividerModule } from '@angular/material/divider'
 
 
 @NgModule({
@@ -55,7 +56,8 @@ import {ReactiveFormsModule } from '@angular/forms';
     MatButtonModule,
     MatToolbarModule,
     MatCheckboxModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDividerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

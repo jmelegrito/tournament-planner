@@ -17,11 +17,8 @@ export class DisplayComponent implements OnInit {
 
   ngOnInit() {
     this.tournamentService.getParticipants(localStorage.getItem('tourneyChosen')).subscribe( response => {
-      
       let list = Object.values(response);
-      console.log(list)
       list.map((data) => this.thisTournamentList.push(data))
-      console.log(this.thisTournamentList)
     });
     
   }

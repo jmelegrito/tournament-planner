@@ -1,0 +1,11 @@
+.horizontalCard {
+    display: flex;
+    justify-content: space-evenly;
+}
+.cardList {
+    display: flex;
+    flex-flow: column;
+}
+.tourneyCard {
+    margin: 10px;
+}
