@@ -11,14 +11,15 @@
             <div class="participants">
               <mat-card class='participant' >
                 <mat-form-field>
+                  <mat-placeholder>{{bracketPos1.userName}}</mat-placeholder>
                   <mat-select id="1a" [(ngModel)]="bracketPos['1a']" (ngModelChange)="onBracketPos($event,'1a')">
-                    <mat-placeholder></mat-placeholder>
                     <mat-option *ngFor="let t of tournamentParticipantList" [value]="t.id">{{t.userName}}</mat-option>
                   </mat-select>
                 </mat-form-field>
               </mat-card>
               <mat-card class='participant'>
                 <mat-form-field>
+                    <mat-placeholder>{{bracketPos2.userName}}</mat-placeholder>
                   <mat-select id="1b" [(ngModel)]="bracketPos['1b']" (ngModelChange)="onBracketPos($event,'1b')">
                     <mat-option *ngFor="let t of tournamentParticipantList" [value]="t.id">{{t.userName}}</mat-option>
                   </mat-select>
@@ -30,6 +31,7 @@
             <div class="participants">
               <mat-card class='participant' >
                 <mat-form-field>
+                    <mat-placeholder>{{bracketPos3.userName}}</mat-placeholder>
                   <mat-select id="1c" [(ngModel)]="bracketPos['1c']" (ngModelChange)="onBracketPos($event,'1c')">
                     <mat-option *ngFor="let t of tournamentParticipantList" [value]="t.id">{{t.userName}}</mat-option>
                   </mat-select>
@@ -37,6 +39,7 @@
               </mat-card>
               <mat-card class='participant' >
                 <mat-form-field>
+                    <mat-placeholder>{{bracketPos4.userName}}</mat-placeholder>
                   <mat-select id="1d" [(ngModel)]="bracketPos['1d']" (ngModelChange)="onBracketPos($event,'1d')">
                     <mat-option *ngFor="let t of tournamentParticipantList" [value]="t.id">{{t.userName}}</mat-option>
                   </mat-select>
@@ -56,6 +59,7 @@
             <div class="participants">
               <mat-card class='participant' >
                 <mat-form-field>
+                    <mat-placeholder>{{bracketPos5.userName}}</mat-placeholder>
                   <mat-select id="1e" [(ngModel)]="bracketPos['1e']" (ngModelChange)="onBracketPos($event,'1e')">
                     <mat-option *ngFor="let t of tournamentParticipantList" [value]="t.id">{{t.userName}}</mat-option>
                   </mat-select>
@@ -63,6 +67,7 @@
               </mat-card>
               <mat-card class='participant' >
                 <mat-form-field>
+                    <mat-placeholder>{{bracketPos6.userName}}</mat-placeholder>
                   <mat-select id="1f" [(ngModel)]="bracketPos['1f']" (ngModelChange)="onBracketPos($event,'1f')">
                     <mat-option *ngFor="let t of tournamentParticipantList" [value]="t.id">{{t.userName}}</mat-option>
                   </mat-select>
@@ -74,6 +79,7 @@
             <div class="participants">
               <mat-card class='participant' >
                 <mat-form-field>
+                    <mat-placeholder>{{bracketPos7.userName}}</mat-placeholder>
                   <mat-select id="1g" [(ngModel)]="bracketPos['1g']" (ngModelChange)="onBracketPos($event,'1g')">
                     <mat-option *ngFor="let t of tournamentParticipantList" [value]="t.id">{{t.userName}}</mat-option>
                   </mat-select>
@@ -81,6 +87,7 @@
               </mat-card>
               <mat-card class='participant' >
                 <mat-form-field>
+                    <mat-placeholder>{{bracketPos8.userName}}</mat-placeholder>
                   <mat-select id="1h" [(ngModel)]="bracketPos['1h']" (ngModelChange)="onBracketPos($event,'1h')">
                     <mat-option *ngFor="let t of tournamentParticipantList" [value]="t.id">{{t.userName}}</mat-option>
                   </mat-select>
@@ -102,6 +109,7 @@
             <div class="participants">
               <mat-card class='participant' >
                 <mat-form-field>
+                    <mat-placeholder>{{bracketPos9.userName}}</mat-placeholder>
                   <mat-select id="2a" [(ngModel)]="bracketPos['2a']" (ngModelChange)="onBracketPos($event,'2a')">
                     <mat-option *ngFor="let t of tournamentParticipantList" [value]="t.id">{{t.userName}}</mat-option>
                   </mat-select>
@@ -109,6 +117,7 @@
               </mat-card>
               <mat-card class='participant' >
                 <mat-form-field>
+                    <mat-placeholder>{{bracketPos10.userName}}</mat-placeholder>
                   <mat-select id="2b" [(ngModel)]="bracketPos['2b']" (ngModelChange)="onBracketPos($event,'2b')">
                     <mat-option *ngFor="let t of tournamentParticipantList" [value]="t.id">{{t.userName}}</mat-option>
                   </mat-select>
@@ -120,6 +129,7 @@
             <div class="participants">
               <mat-card class='participant' >
                 <mat-form-field>
+                    <mat-placeholder>{{bracketPos11.userName}}</mat-placeholder>
                   <mat-select id="2c" [(ngModel)]="bracketPos['2c']" (ngModelChange)="onBracketPos($event,'2c')">
                     <mat-option *ngFor="let t of tournamentParticipantList" [value]="t.id">{{t.userName}}</mat-option>
                   </mat-select>
@@ -127,6 +137,7 @@
               </mat-card>
               <mat-card class='participant' >
                 <mat-form-field>
+                    <mat-placeholder>{{bracketPos12.userName}}</mat-placeholder>
                   <mat-select id="2d" [(ngModel)]="bracketPos['2d']" (ngModelChange)="onBracketPos($event,'2d')">
                     <mat-option *ngFor="let t of tournamentParticipantList" [value]="t.id">{{t.userName}}</mat-option>
                   </mat-select>
@@ -148,6 +159,7 @@
             <div class="participants">
               <mat-card class='participant' >
                 <mat-form-field>
+                    <mat-placeholder>{{bracketPos13.userName}}</mat-placeholder>
                   <mat-select id="3a" [(ngModel)]="bracketPos['3a']" (ngModelChange)="onBracketPos($event,'3a')">
                     <mat-option *ngFor="let t of tournamentParticipantList" [value]="t.id">{{t.userName}}</mat-option>
                   </mat-select>
@@ -155,6 +167,7 @@
               </mat-card>
               <mat-card class='participant' >
                 <mat-form-field>
+                    <mat-placeholder>{{bracketPos14.userName}}</mat-placeholder>
                   <mat-select id="3b" [(ngModel)]="bracketPos['3b']" (ngModelChange)="onBracketPos($event,'3b')">
                     <mat-option *ngFor="let t of tournamentParticipantList" [value]="t.id">{{t.userName}}</mat-option>
                   </mat-select>

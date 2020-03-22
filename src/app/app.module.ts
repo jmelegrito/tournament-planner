@@ -24,7 +24,8 @@ import {MatSelectModule} from '@angular/material/select';
 import { ShowOrganizedTourneyComponent } from './show-organized-tourney/show-organized-tourney.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {ReactiveFormsModule } from '@angular/forms';
-import { MatDividerModule } from '@angular/material/divider'
+import { MatDividerModule } from '@angular/material/divider';
+import { SingleBracketUserViewComponent } from './single-bracket-user-view/single-bracket-user-view.component'
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { MatDividerModule } from '@angular/material/divider'
     CheckTournamentChildComponent,
     SingleBracketComponent,
     DisplayComponent,
-    ShowOrganizedTourneyComponent
+    ShowOrganizedTourneyComponent,
+    SingleBracketUserViewComponent
 
   ],
   imports: [

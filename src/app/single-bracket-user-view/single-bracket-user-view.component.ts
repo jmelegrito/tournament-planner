@@ -3,11 +3,11 @@ import { TournamentService } from '../tournament.service'
 import {FormControl} from '@angular/forms';
 
 @Component({
-  selector: 'app-single-bracket',
-  templateUrl: './single-bracket.component.html',
-  styleUrls: ['./single-bracket.component.css']
+  selector: 'app-single-bracket-user-view',
+  templateUrl: './single-bracket-user-view.component.html',
+  styleUrls: ['./single-bracket-user-view.component.css']
 })
-export class SingleBracketComponent implements OnInit {
+export class SingleBracketUserViewComponent implements OnInit {
 
   @Input() tournamentId: number;
 
