@@ -14,7 +14,7 @@ export class SignInFormComponent implements OnInit {
     password: '',
   };
 
-  constructor(private tournamentService: TournamentService, private router: Router, private authService: AuthService) { }
+  constructor(public tournamentService: TournamentService, public router: Router, public authService: AuthService) { }
 
   ngOnInit() {
   }

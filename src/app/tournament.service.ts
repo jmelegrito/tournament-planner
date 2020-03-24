@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-const baseUrl = 'http://localhost:3000';
+const baseUrl = 'https://tourney-planner.herokuapp.com/';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +9,7 @@ const baseUrl = 'http://localhost:3000';
 
 export class TournamentService {
 
-  constructor(private http: HttpClient) { }
+  constructor(public http: HttpClient) { }
 
   getAll() {
     return this.http.get(baseUrl);

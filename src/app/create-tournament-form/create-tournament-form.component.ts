@@ -20,7 +20,7 @@ export class CreateTournamentFormComponent implements OnInit {
   @Input() userType: Object;
   @Input() userId: Object;
 
-  constructor(private tournamentService: TournamentService, private route: Router) { }
+  constructor(public tournamentService: TournamentService, public route: Router) { }
 
   ngOnInit() {
     if(this.userType === 'Organizer'){

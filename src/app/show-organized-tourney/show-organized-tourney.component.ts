@@ -12,7 +12,7 @@ export class ShowOrganizedTourneyComponent implements OnInit {
   grabbedTourneyId : number
   viewed = false;
 
-  constructor(private tournamentService: TournamentService) { }
+  constructor(public tournamentService: TournamentService) { }
 
   ngOnInit() {
 
