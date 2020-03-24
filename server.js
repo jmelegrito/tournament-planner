@@ -47,7 +47,7 @@ app.use(express.static(__dirname + '/dist'));
 
 app.get('/', function(req,res) {
     
-res.redirect('./dist/tourney-planner/index.html');
+res.redirect('./dist/tournament-planner/index.html');
 });
 
 app.listen(process.env.PORT || 8080);
