@@ -13,12 +13,21 @@ export class CheckTournamentParentComponent implements OnInit {
   tournamentParticipants = []
   toggler = true
   chosenTourney: number
+  selectChecker = false
 
   @Input() tourneyList: Array<object>;
 
   constructor(public tournamentService: TournamentService, public changeDetector: ChangeDetectorRef) { }
 
   ngOnInit() {
+    if(this.selectChecker){
+      this.tournamentService.get(this.chosenTourney).subscribe(
+        response => {
+        this.tournament = response
+        this.selectChecker = true
+        }
+      )
+    }
   }
 
 
@@ -31,6 +40,7 @@ export class CheckTournamentParentComponent implements OnInit {
       this.toggler=false
       this.changeDetector.detectChanges();
       this.toggler=true
+      this.selectChecker = true
       }
     )
   }
