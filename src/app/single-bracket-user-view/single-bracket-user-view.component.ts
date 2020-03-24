@@ -27,6 +27,7 @@ export class SingleBracketUserViewComponent implements OnInit {
   bracketPos12: object
   bracketPos13: object
   bracketPos14: object
+  bracketPos15: object
 
 
   disableSelect = new FormControl(false);
@@ -106,7 +107,9 @@ export class SingleBracketUserViewComponent implements OnInit {
       this.bracketPos14 = this.tournamentParticipantList.find((e) => { 
         return e.bracket === '3b'
       })
-     
+      this.bracketPos15 = this.tournamentParticipantList.find((e) => { 
+        return e.bracket === '4a'
+      })
     });
   }
 

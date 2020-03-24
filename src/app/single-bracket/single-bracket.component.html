@@ -178,5 +178,23 @@
         </div>
       </div>
     </section>
+    <section class="round">
+        <div class="winners">
+          <div class="matchups">
+            <div class="matchup">
+              <div class="participants">
+                <mat-card class='participant' >
+                  <mat-form-field>
+                      <mat-placeholder>{{bracketPos15.userName}}</mat-placeholder>
+                    <mat-select id="4a" [(ngModel)]="bracketPos['4a']" (ngModelChange)="onBracketPos($event,'4a')">
+                      <mat-option *ngFor="let t of tournamentParticipantList" [value]="t.id">{{t.userName}}</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </mat-card>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
   </div>
 </mat-card>
