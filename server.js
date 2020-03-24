@@ -21,11 +21,11 @@ function encryptionPassword(password) {
     return hash;
 }
 
-var corsOptions = {
-    origin: "http://localhost:4200"
-}
+// var corsOptions = {
+//     origin: "http://localhost:4200"
+// }
 
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
 
 app.use(cookieSession({
     maxAge: 24 * 60 * 60 * 1000,
@@ -42,8 +42,15 @@ app.use(session({
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-const port = 3000;
-app.listen(port, () => console.log('App listening on port ' + port));
+
+app.use(express.static('./dist/tourney-planner'));
+
+app.get('/*', function(req,res) {
+    
+res.sendFile(path.join(__dirname,'/dist/tourney-planner/index.html'));
+});
+
+app.listen(process.env.PORT || 8080);
 
 /*  PASSPORT SETUP  */
 
