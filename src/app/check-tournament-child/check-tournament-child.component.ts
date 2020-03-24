@@ -8,7 +8,7 @@ import { TournamentService } from '../tournament.service';
 })
 export class CheckTournamentChildComponent implements OnInit {
 
-  @Input() selectedTournament: Array<object>;
+  @Input() selectedTournament: any;
 
   toggler = true
   grabbedTourneyId : any
