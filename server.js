@@ -203,7 +203,7 @@ app.get('/tourney/:id', function (req, res) {
     }).catch(err => {
         res.status(500).send({
             message:
-                err.message || "Something bad is happening in Oz!"
+                err.message  + "gettourney" || "Something bad is happening in Oz!"
         })
     })
 })
@@ -236,7 +236,7 @@ app.get('/:id', function (req, res) {
     }).catch(err => {
         res.status(500).send({
             message:
-                err.message || "Something bad is happening in Oz!"
+                err.message  + "viewselected" || "Something bad is happening in Oz!"
         })
     })
 })
@@ -270,7 +270,7 @@ app.get('/participantList/:id', function (req, res) {
     }).catch(err => {
         res.status(500).send({
             message:
-                err.message || "Something bad is happening in Oz!"
+                err.message + "getparticipant" || "Something bad is happening in Oz!"
         })
     })
 })
@@ -305,7 +305,7 @@ app.post('/', function (req, res) {
     }).catch(err => {
         res.status(500).send({
             message:
-                err.message || "Something bad is happening in Oz!"
+                err.message + "create" || "Something bad is happening in Oz!"
         })
     })
 })
@@ -338,7 +338,7 @@ app.put('/:id', function (req, res) {
     }).catch(err => {
         res.status(500).send({
             message:
-                err.message || "Something bad is happening in Oz!"
+                err.message + "update" || "Something bad is happening in Oz!"
         })
     })
 })
@@ -368,7 +368,7 @@ app.put('/join/:id', function (req, res) {
     }).catch(err => {
         res.status(500).send({
             message:
-                err.message || "Something bad is happening in Oz!"
+                err.message + "join" || "Something bad is happening in Oz!"
         })
     })
 })
