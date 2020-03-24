@@ -11,7 +11,7 @@ export class CheckTournamentChildComponent implements OnInit {
   @Input() selectedTournament: Array<object>;
 
   toggler = true
-  grabbedTourneyId : object
+  grabbedTourneyId : any
 
   constructor(public tournamentService: TournamentService, public changeDetector: ChangeDetectorRef) {}
 

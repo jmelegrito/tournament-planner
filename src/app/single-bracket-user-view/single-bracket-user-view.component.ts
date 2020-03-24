@@ -13,21 +13,21 @@ export class SingleBracketUserViewComponent implements OnInit {
 
   bracketPos: Array<any> = [];
   
-  bracketPos1: object
-  bracketPos2: object
-  bracketPos3: object
-  bracketPos4: object
-  bracketPos5: object
-  bracketPos6: object
-  bracketPos7: object
-  bracketPos8: object
-  bracketPos9: object
-  bracketPos10: object
-  bracketPos11: object
-  bracketPos12: object
-  bracketPos13: object
-  bracketPos14: object
-  bracketPos15: object
+  bracketPos1: any
+  bracketPos2: any
+  bracketPos3: any
+  bracketPos4: any
+  bracketPos5: any
+  bracketPos6: any
+  bracketPos7: any
+  bracketPos8: any
+  bracketPos9: any
+  bracketPos10: any
+  bracketPos11: any
+  bracketPos12: any
+  bracketPos13: any
+  bracketPos14: any
+  bracketPos15: any
 
 
   disableSelect = new FormControl(false);
