@@ -275,9 +275,42 @@ app.get('/participantList/:id', function (req, res) {
     })
 })
 
+app.get('/home/participantList/:id', function (req, res) {
+    models.users.findAll({
+        where: {
+            tournamentJoined: req.params.id
+        }
+    }).then(function (data) {
+        console.log("in participant list")
+        res.send(data)
+    }).catch(err => {
+        res.status(500).send({
+            message:
+                err.message || "Something bad is happening in Oz!"
+        })
+    })
+})
+
 
 // Create tournament
 app.post('/', function (req, res) {
+    models.tournaments.create({
+        name: req.body.name,
+        description: req.body.description,
+        contact: req.body.contact,
+        type: req.body.type,
+        organizer: req.body.organizer
+    }).then(function (data) {
+        res.send(data)
+    }).catch(err => {
+        res.status(500).send({
+            message:
+                err.message || "Something bad is happening in Oz!"
+        })
+    })
+})
+
+app.post('/home/', function (req, res) {
     models.tournaments.create({
         name: req.body.name,
         description: req.body.description,
