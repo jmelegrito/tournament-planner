@@ -11,11 +11,12 @@ export class CheckTournamentChildComponent implements OnInit {
   @Input() selectedTournament: Array<object>;
 
   toggler = true
-
+  grabbedTourneyId : object
 
   constructor(private tournamentService: TournamentService, private changeDetector: ChangeDetectorRef) {}
 
   ngOnInit() {
+    this.grabbedTourneyId = this.selectedTournament
   }
 
   joinTournament(data) {
@@ -25,7 +26,7 @@ export class CheckTournamentChildComponent implements OnInit {
     }
 
     const participant = parseInt(localStorage.getItem('id'))
-
+    
     this.tournamentService.join(participant, info).subscribe(
       () => {
         this.toggler = false

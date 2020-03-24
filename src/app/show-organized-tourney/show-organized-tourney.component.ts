@@ -10,6 +10,7 @@ export class ShowOrganizedTourneyComponent implements OnInit {
 
   organizedList = []
   grabbedTourneyId : number
+  viewed = false;
 
   constructor(private tournamentService: TournamentService) { }
 
@@ -26,7 +27,10 @@ export class ShowOrganizedTourneyComponent implements OnInit {
 
   viewTournament(id) {
     this.grabbedTourneyId = id
-    console.log(this.organizedList)
+    this.viewed = false;
+    console.log(this.grabbedTourneyId)
+    console.log(this.viewed)
+    this.viewed = true;
   }
 
 }

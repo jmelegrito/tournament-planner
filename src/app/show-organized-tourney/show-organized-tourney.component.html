@@ -1,6 +1,5 @@
 <div class="cardList">
 <div *ngFor="let tourney of organizedList">
-        <app-single-bracket-user-view></app-single-bracket-user-view>
     <mat-card class="tourneyCard">
         <mat-card-header>
             <mat-card-title>{{tourney.name}}</mat-card-title>
@@ -23,4 +22,4 @@
     </mat-card>
     </div>
 </div>
-<app-single-bracket [tournamentId] = 'grabbedTourneyId'></app-single-bracket>
+<app-single-bracket *ngIf="viewed" [tournamentId] = 'grabbedTourneyId'></app-single-bracket>

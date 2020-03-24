@@ -62,10 +62,13 @@ export class SingleBracketComponent implements OnInit {
       this.organizerCheck = true
     }
 
-    this.tournamentService.getParticipants(1).subscribe( response => {
+    this.tournamentService.getParticipants(this.tournamentId).subscribe( response => {
       let list = Object.values(response);
+      console.log(this.tournamentParticipantList)
       list.map((data) => this.tournamentParticipantList.push(data))
+      console.log(this.tournamentParticipantList)
       this.bracketPos1 = this.tournamentParticipantList.find((e) => { 
+        console.log(e.userName)
         return e.bracket === '1a'
       })
       this.bracketPos2 = this.tournamentParticipantList.find((e) => {
