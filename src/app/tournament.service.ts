@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-const baseUrl = 'https://tourney-planner.herokuapp.com/';
+const baseUrl = 'https://tourney-planner.herokuapp.com';
 
 @Injectable({
   providedIn: 'root'
