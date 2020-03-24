@@ -9,7 +9,7 @@ import {FormControl} from '@angular/forms';
 })
 export class SingleBracketUserViewComponent implements OnInit {
 
-  @Input() tournamentId: object;
+  @Input() tournamentId: any;
 
   bracketPos: Array<any> = [];
   
@@ -61,8 +61,9 @@ export class SingleBracketUserViewComponent implements OnInit {
     if(user === 'Organizer'){
       this.organizerCheck = true
     }
+    const participant = parseInt(localStorage.getItem('tourneyChosen'))
 
-    this.tournamentService.getParticipants(this.tournamentId.id).subscribe( response => {
+    this.tournamentService.getParticipants(participant).subscribe( response => {
       let list = Object.values(response);
       list.map((data) => this.tournamentParticipantList.push(data))
       this.bracketPos1 = this.tournamentParticipantList.find((e) => { 
