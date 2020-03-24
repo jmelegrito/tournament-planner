@@ -12,7 +12,7 @@ export class TournamentService {
   constructor(public http: HttpClient) { }
 
   getAll() {
-    return this.http.get(baseUrl);
+    return this.http.get(`${baseUrl}/getall`);
   }
 
   get(id) {
