@@ -180,8 +180,35 @@ app.get('/getall', function (req, res) {
     })
 })
 
+app.get('/home/getall', function (req, res) {
+    models.tournaments.findAll({}).then(function (data) {
+        console.log("in getall")
+        res.send(data)
+    }).catch(err => {
+        res.status(500).send({
+            message:
+                err.message || "Something bad is happening in Oz!"
+        })
+    })
+})
+
 //Grab all tournaments according to organizer
 app.get('/tourney/:id', function (req, res) {
+    models.tournaments.findAll({
+        where: {
+            organizer: req.params.id
+        }
+    }).then(function (data) {
+        res.send(data)
+    }).catch(err => {
+        res.status(500).send({
+            message:
+                err.message || "Something bad is happening in Oz!"
+        })
+    })
+})
+
+app.get('/home/tourney/:id', function (req, res) {
     models.tournaments.findAll({
         where: {
             organizer: req.params.id
@@ -199,6 +226,22 @@ app.get('/tourney/:id', function (req, res) {
 
 // View selected tournament
 app.get('/:id', function (req, res) {
+    models.tournaments.findOne({
+        where: {
+            id: req.params.id
+        }
+    }).then(function (data) {
+        console.log("in view tourney")
+        res.send(data)
+    }).catch(err => {
+        res.status(500).send({
+            message:
+                err.message || "Something bad is happening in Oz!"
+        })
+    })
+})
+
+app.get('/home/:id', function (req, res) {
     models.tournaments.findOne({
         where: {
             id: req.params.id
@@ -267,7 +310,37 @@ app.put('/:id', function (req, res) {
     })
 })
 
+app.put('/home/:id', function (req, res) {
+    models.tournaments.update(
+        req.body,
+        { where: { id: req.params.id } }
+    ).then(function (data) {
+        console.log("in update")
+        res.send(data)
+    }).catch(err => {
+        res.status(500).send({
+            message:
+                err.message || "Something bad is happening in Oz!"
+        })
+    })
+})
+
 app.put('/join/:id', function (req, res) {
+    models.users.update(
+        req.body,
+        { where: { id: req.params.id } }
+    ).then(function (data) {
+        console.log("in join")
+        res.send(data)
+    }).catch(err => {
+        res.status(500).send({
+            message:
+                err.message || "Something bad is happening in Oz!"
+        })
+    })
+})
+
+app.put('/home/join/:id', function (req, res) {
     models.users.update(
         req.body,
         { where: { id: req.params.id } }
