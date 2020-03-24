@@ -21,7 +21,7 @@ export class CheckTournamentParentComponent implements OnInit {
 
   ngOnInit() {
     if(!this.selectChecker){
-      this.chosenTourney = parseInt(localStorage.getItem('tourneyChosen'))
+      this.chosenTourney = 1
       this.tournamentService.get(this.chosenTourney).subscribe(
         response => {
         this.tournament = response
