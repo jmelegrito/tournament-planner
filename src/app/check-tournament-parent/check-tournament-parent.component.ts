@@ -12,6 +12,7 @@ export class CheckTournamentParentComponent implements OnInit {
   tournament: object
   tournamentParticipants = []
   toggler = true
+  chosenTourney: number
 
   @Input() tourneyList: Array<object>;
 
@@ -22,8 +23,9 @@ export class CheckTournamentParentComponent implements OnInit {
 
 
 
-  checkTournament(id) {
-    this.tournamentService.get(id).subscribe(
+  checkTournament() {
+    this.chosenTourney = parseInt(localStorage.getItem('tourneyChosen'))
+    this.tournamentService.get(this.chosenTourney).subscribe(
       response => {
       this.tournament = response
       this.toggler=false
@@ -39,12 +41,10 @@ export class CheckTournamentParentComponent implements OnInit {
     //   list.map((data) => this.tournamentParticipants.push(data))
     // });
     localStorage.setItem('tourneyChosen', id)
-
-
   }
 
   queryServer(id){
-    this.checkTournament(id);
     this.getList(id)
+    this.checkTournament();
   }
 }
