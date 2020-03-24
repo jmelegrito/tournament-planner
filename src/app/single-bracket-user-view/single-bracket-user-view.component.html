@@ -8,20 +8,20 @@
       
         <div class="tournament-brackets">
           <ul class="bracket bracket-2">
-            <li class="team-item">{{bracketPos1.userName}} <time>VS</time> {{bracketPos2.userName}}</li>
-            <li class="team-item">{{bracketPos3.userName}}<time>VS</time> {{bracketPos4.userName}}</li>
-            <li class="team-item">{{bracketPos5.userName}} <time>VS</time> {{bracketPos6.userName}}</li>
-            <li class="team-item">{{bracketPos7.userName}} <time>VS</time> {{bracketPos8.userName}}</li>
+            <li class="team-item"><p *ngIf="bracketPos1">{{bracketPos1.userName}}</p><time>VS</time><p *ngIf="bracketPos2">{{bracketPos2.userName}}</p></li>
+            <li class="team-item"><p *ngIf="bracketPos3">{{bracketPos3.userName}}</p><time>VS</time><p *ngIf="bracketPos4">{{bracketPos4.userName}}</p></li>
+            <li class="team-item"><p *ngIf="bracketPos5">{{bracketPos5.userName}}</p><time>VS</time><p *ngIf="bracketPos6">{{bracketPos6.userName}}</p></li>
+            <li class="team-item"><p *ngIf="bracketPos7">{{bracketPos7.userName}}</p><time>VS</time><p *ngIf="bracketPos8">{{bracketPos8.userName}}</p></li>
           </ul>  
           <ul class="bracket bracket-3">
-            <li class="team-item">{{bracketPos9.userName}}<time>VS</time> {{bracketPos10.userName}}</li>
-            <li class="team-item">{{bracketPos11.userName}} <time>VS</time> {{bracketPos12.userName}}</li>
+            <li class="team-item"><p *ngIf="bracketPos9">{{bracketPos9.userName}}</p><time>VS</time><p *ngIf="bracketPos10">{{bracketPos10.userName}}</p></li>
+            <li class="team-item"><p *ngIf="bracketPos11">{{bracketPos11.userName}}</p><time>VS</time> <p *ngIf="bracketPos12">{{bracketPos12.userName}}</p></li>
           </ul>  
           <ul class="bracket bracket-4">
-            <li class="team-item">{{bracketPos13.userName}}<time>VS</time> {{bracketPos14.userName}}</li>
+            <li class="team-item"><p *ngIf="bracketPos13">{{bracketPos13.userName}}</p><time>VS</time> <p *ngIf="bracketPos14">{{bracketPos14.userName}}</p></li>
           </ul>  
           <ul class="bracket bracket-5">
-            <li class="team-item">{{bracketPos15.userName}}</li>
+            <li class="team-item"><p *ngIf="bracketPos15">{{bracketPos15.userName}}</p></li>
           </ul>  
         </div>
     </mat-card>
