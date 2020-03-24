@@ -46,7 +46,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(express.static(__dirname + '/dist'));
 
-app.get('/*', function(req,res) {
+app.get('*', function(req,res) {
     
 res.sendFile(path.join(__dirname, '/dist/index.html'))
 });
@@ -101,7 +101,7 @@ passport.use(new LocalStrategy(
 
 /* SIGNIN SIGNUP */
 
-app.post('sign-in',
+app.post('/sign-in',
     passport.authenticate('local'), function (req, res) {
         if (req.isAuthenticated()) {
             console.log("The user is logged in.");
@@ -121,12 +121,12 @@ app.post('sign-in',
 
         } else {
             console.log("no open session")
-            res.send("login");
+            res.send("/login");
         }
     }
 );
 
-app.post("sign-up", function (req, res) {
+app.post("/sign-up", function (req, res) {
     console.log(req.body)
     models.users.create({
         userName: req.body.userName,
@@ -154,21 +154,21 @@ app.post("sign-up", function (req, res) {
         });
 });
 
-app.get('sign-out', function (req, res) {
+app.get('/sign-out', function (req, res) {
     if (req.isAuthenticated()) {
         //   console.log("The user is logging out.");
         req.logOut();
-        res.send("login");
+        res.send("/login");
     } else {
         //   console.log("no open session")
-        res.send("login");
+        res.send("/login");
     }
 });
 
 /* TOURNAMENT SERVICE */
 
 // Grab all tournaments
-app.get('getall', function (req, res) {
+app.get('/getall', function (req, res) {
     models.tournaments.findAll({}).then(function (data) {
         res.send(data)
     }).catch(err => {
@@ -180,7 +180,7 @@ app.get('getall', function (req, res) {
 })
 
 //Grab all tournaments according to organizer
-app.get('tourney/:id', function (req, res) {
+app.get('/tourney/:id', function (req, res) {
     models.tournaments.findAll({
         where: {
             organizer: req.params.id
@@ -197,7 +197,7 @@ app.get('tourney/:id', function (req, res) {
 
 
 // View selected tournament
-app.get(':id', function (req, res) {
+app.get('/:id', function (req, res) {
     models.tournaments.findOne({
         where: {
             id: req.params.id
@@ -214,7 +214,7 @@ app.get(':id', function (req, res) {
 
 //View participants of a specific tournament
 
-app.get('participantList/:id', function (req, res) {
+app.get('/participantList/:id', function (req, res) {
     models.users.findAll({
         where: {
             tournamentJoined: req.params.id
