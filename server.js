@@ -8,6 +8,7 @@ const cookieSession = require("cookie-session")
 const cookieParser = require("cookie-parser")
 const Sequelize = require("sequelize")
 const cors = require('cors')
+const path = require('path')
 
 var pbkdf2 = require('pbkdf2');
 var salt = "XZoLh12Teu";
