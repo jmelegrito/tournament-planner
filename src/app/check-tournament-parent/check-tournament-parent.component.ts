@@ -15,7 +15,7 @@ export class CheckTournamentParentComponent implements OnInit {
 
   @Input() tourneyList: Array<object>;
 
-  constructor(private tournamentService: TournamentService, private changeDetector: ChangeDetectorRef) { }
+  constructor(public tournamentService: TournamentService, public changeDetector: ChangeDetectorRef) { }
 
   ngOnInit() {
   }

@@ -10,7 +10,7 @@ import { AuthService } from './auth.service'
 })
 export class AppComponent {
   title = 'tournament-planner';
-  constructor(private tournamentService: TournamentService, private router: Router, private authService: AuthService) { }
+  constructor(public tournamentService: TournamentService, public router: Router, public authService: AuthService) { }
 
   signOutUserFunction() {
     this.tournamentService.signOut()

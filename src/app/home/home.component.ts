@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
   idOfUser = {}
   participantCheck = false
 
-  constructor(private tournamentService: TournamentService) { }
+  constructor(public tournamentService: TournamentService) { }
 
   ngOnInit() {
 

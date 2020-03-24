@@ -12,7 +12,7 @@ export class DisplayComponent implements OnInit {
    thisTournamentList = []
    @Input() toggleFlag: boolean;
 
-  constructor(private tournamentService: TournamentService, private router: Router, ) {}
+  constructor(public tournamentService: TournamentService, public router: Router, ) {}
   
 
   ngOnInit() {

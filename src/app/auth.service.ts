@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AuthService {
 
-  constructor(private http : HttpClient) { }
+  constructor(public http : HttpClient) { }
 
   public isAuthenticated() : Boolean {
     let userData = localStorage.getItem('userInfo')

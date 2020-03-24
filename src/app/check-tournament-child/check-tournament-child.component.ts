@@ -13,7 +13,7 @@ export class CheckTournamentChildComponent implements OnInit {
   toggler = true
   grabbedTourneyId : object
 
-  constructor(private tournamentService: TournamentService, private changeDetector: ChangeDetectorRef) {}
+  constructor(public tournamentService: TournamentService, public changeDetector: ChangeDetectorRef) {}
 
   ngOnInit() {
     this.grabbedTourneyId = this.selectedTournament

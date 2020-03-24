@@ -34,7 +34,7 @@ export class SingleBracketUserViewComponent implements OnInit {
 
   tournamentParticipantList = []
 
-  constructor(private tournamentService: TournamentService) { }
+  constructor(public tournamentService: TournamentService) { }
 
   organizerCheck= false
 
