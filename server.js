@@ -43,7 +43,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 
-app.use(express.static('./dist/tourney-planner'));
+app.use(express.static('./dist/tourney-planner/'));
+
+app.get('/', function(req,res) {
+    
+res.sendFile(path.join(__dirname,'/dist/tourney-planner/index.html'));
+});
 
 app.listen(process.env.PORT || 8080);
 
@@ -162,7 +167,7 @@ app.get('/sign-out', function (req, res) {
 /* TOURNAMENT SERVICE */
 
 // Grab all tournaments
-app.get('/', function (req, res) {
+app.get('/getall', function (req, res) {
     models.tournaments.findAll({}).then(function (data) {
         res.send(data)
     }).catch(err => {
