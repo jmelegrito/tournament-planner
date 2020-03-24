@@ -20,15 +20,6 @@ export class CheckTournamentParentComponent implements OnInit {
   constructor(public tournamentService: TournamentService, public changeDetector: ChangeDetectorRef) { }
 
   ngOnInit() {
-    if(!this.selectChecker){
-      this.chosenTourney = 1
-      this.tournamentService.get(this.chosenTourney).subscribe(
-        response => {
-        this.tournament = response
-        this.selectChecker = true
-        }
-      )
-    }
   }
 
 
