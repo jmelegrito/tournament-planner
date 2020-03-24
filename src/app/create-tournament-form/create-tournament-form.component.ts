@@ -51,7 +51,7 @@ export class CreateTournamentFormComponent implements OnInit {
         .subscribe(
           response => {
             console.log(response);
-            this.route.navigate(['home'])   
+            this.route.navigate(['home'], { skipLocationChange: true })   
           }); 
     
   }
