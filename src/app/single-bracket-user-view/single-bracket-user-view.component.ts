@@ -9,7 +9,7 @@ import {FormControl} from '@angular/forms';
 })
 export class SingleBracketUserViewComponent implements OnInit {
 
-  @Input() tournamentId: object;
+  @Input() tournamentId: any;
 
   bracketPos: Array<any> = [];
   
