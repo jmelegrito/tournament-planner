@@ -43,12 +43,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 
-app.use(express.static('./dist/tourney-planner/index.html'));
+app.use(express.static('./dist/tourney-planner/'));
 
-// app.get('/', function(req,res) {
+app.get('/*', function(req,res) {
     
-// res.sendFile(path.join(__dirname,'/dist/tourney-planner/index.html'));
-// });
+res.sendFile(path.join(__dirname+'/dist/tourney-planner/index.html'));
+});
 
 app.listen(process.env.PORT || 8080);
 
