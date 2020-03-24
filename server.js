@@ -170,6 +170,7 @@ app.get('/sign-out', function (req, res) {
 // Grab all tournaments
 app.get('/getall', function (req, res) {
     models.tournaments.findAll({}).then(function (data) {
+        console.log("in getall")
         res.send(data)
     }).catch(err => {
         res.status(500).send({
@@ -203,6 +204,7 @@ app.get('/:id', function (req, res) {
             id: req.params.id
         }
     }).then(function (data) {
+        console.log("in view tourney")
         res.send(data)
     }).catch(err => {
         res.status(500).send({
@@ -220,6 +222,7 @@ app.get('/participantList/:id', function (req, res) {
             tournamentJoined: req.params.id
         }
     }).then(function (data) {
+        console.log("in participant list")
         res.send(data)
     }).catch(err => {
         res.status(500).send({
@@ -254,6 +257,7 @@ app.put('/:id', function (req, res) {
         req.body,
         { where: { id: req.params.id } }
     ).then(function (data) {
+        console.log("in update")
         res.send(data)
     }).catch(err => {
         res.status(500).send({
@@ -268,6 +272,7 @@ app.put('/join/:id', function (req, res) {
         req.body,
         { where: { id: req.params.id } }
     ).then(function (data) {
+        console.log("in join")
         res.send(data)
     }).catch(err => {
         res.status(500).send({
