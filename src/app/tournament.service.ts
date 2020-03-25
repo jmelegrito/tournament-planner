@@ -16,7 +16,7 @@ export class TournamentService {
   }
 
   get(id) {
-    return this.http.get(`${baseUrl}/${id}`);
+    return this.http.get(`${baseUrl}/home/${id}`);
   }
 
   getTourney(id) {
