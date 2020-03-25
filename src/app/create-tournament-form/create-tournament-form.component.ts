@@ -26,16 +26,16 @@ export class CreateTournamentFormComponent implements OnInit {
     if(this.userType === 'Organizer'){
       this.organizerCheck = true
     }
-    this.route.routeReuseStrategy.shouldReuseRoute = function(){
-      return false;
-  };
+  //   this.route.routeReuseStrategy.shouldReuseRoute = function(){
+  //     return false;
+  // };
 
-  this.route.events.subscribe((evt) => {
-      if (evt instanceof NavigationEnd) {
-          this.route.navigated = false;
-          window.scrollTo(0, 0);
-      }
-  });
+  // this.route.events.subscribe((evt) => {
+  //     if (evt instanceof NavigationEnd) {
+  //         this.route.navigated = false;
+  //         window.scrollTo(0, 0);
+  //     }
+  // });
   }
 
   saveTournament() {
@@ -51,7 +51,7 @@ export class CreateTournamentFormComponent implements OnInit {
         .subscribe(
           response => {
             console.log(response);
-            this.route.navigate(['home'], { skipLocationChange: true })   
+            // this.route.navigate(['home'], { skipLocationChange: true })   
           }); 
     
   }

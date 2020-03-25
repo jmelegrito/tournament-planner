@@ -7,11 +7,11 @@ import { AuthGuardService } from './auth-guard.service';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
-  { path: 'home', component: HomeComponent, canActivate: [AuthGuardService], runGuardsAndResolvers: 'always' },
+  { path: 'home', component: HomeComponent, canActivate: [AuthGuardService]},
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes,{onSameUrlNavigation: 'reload'})],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
