@@ -13,7 +13,7 @@ export class CheckTournamentParentComponent implements OnInit {
   tournamentParticipants = []
   toggler = true
   chosenTourney: number
-  selectChecker = false
+  // selectChecker = false
 
   @Input() tourneyList: Array<object>;
 
@@ -29,10 +29,10 @@ export class CheckTournamentParentComponent implements OnInit {
     this.tournamentService.get(this.chosenTourney).subscribe(
       response => {
       this.tournament = response
-      this.toggler=false
-      this.changeDetector.detectChanges();
-      this.toggler=true
-      this.selectChecker = true
+      // this.toggler=false
+      // this.changeDetector.detectChanges();
+      // this.toggler=true
+      // this.selectChecker = true
       }
     )
   }
